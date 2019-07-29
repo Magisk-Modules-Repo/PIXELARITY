@@ -1,12 +1,7 @@
-```
-   ___  _ __  __ ___  _     _   ___  _  _____ __  __   __ __  ___  ___  _ _  _    ___
-  | _ \| |\ \/ /|  _|| |   / \ | _ \| ||_   _|\ \/ /  |  v  ||   ||   \| | || |  |  _|
-  |  _/| | >  < |  _|| |_ | ^ ||   /| |  | |   \  /   | |v| || | || | || | || |_ |  _|
-  |_|  |_|/_/\_\|___||___||_|_||_|_\|_|  |_|   /_/    |_| |_||___||___/\___/|___||___|
-```
+# PIXELARITY
 
 ### DESCRIPTION
-  -  Contains fix and tweaks for Whyred devices running Android Q
+  -  Contains Fix and Tweaks for Devices Running on Android Q
   
 ### COMPATIBILITY
   -  Android Q (10)  
@@ -18,7 +13,7 @@
 ### CHANGELOGS 
 
   - v3.0
-   > ##### General
+   > #### General
    > - Updated Fonts
    > - Updated Overlays
    > - Prioritize SBC Over AAC
@@ -27,15 +22,16 @@
    > - Removed NFC XMLs (Finally found causing battery drain)
    > - Props Cleanups
    
-   > ##### Lavender / Violet
+   > #### Lavender / Violet
    > - Fixed Status Bar Padding   
    > - Added New Google Assistant Gesture Animation
    
-   > ##### Beryllium
+   > #### Beryllium
    > - Added New Google Assistant Gesture Animation
    
-   > ##### Module
+   > #### Module
    > - Add Lavender, Violet and Beryllium Support
+   > - Add ROM Check Function
 
   - v2.9 (Initial Git Release)
    > - Fixed Pixel Style Rounded Corners cant apply other SystemUI Mod
