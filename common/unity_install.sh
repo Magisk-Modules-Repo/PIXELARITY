@@ -1,29 +1,40 @@
 # PIXELARITY INSTALL LOGIC
 
+KYLIEKYLER=$(grep_prop ro.product.vendor.device /vendor/build.prop)
+ROM=$(grep_prop ro.build.display.id | cut -d'-' -f1)
+
 ui_print " "
 ui_print "- Running API check..."
 
 if [ $API -lt 29 ]; then
   sleep 1
   abort "  API not supported, aborting..."
-  else
-    sleep 1
-    ui_print "  API level passed"
+else
+  sleep 1
+  ui_print "  API level passed"
 fi
+
+ui_print " "
+ui_print "- Running ROM compatibility check..."
+
+if [ -d /system/product/priv-app/SystemUIGoogle ]; then
+  sleep 1
+  ui_print "  $ROM is compatible"
+else
+  sleep 1
+  abort "  $ROM is not compatible, aborting..."
+fi  
 
 ui_print " "
 ui_print "- Decompressing files..."
 tar -xf $TMPDIR/PIXELARITY.tar.xz -C $TMPDIR 2>/dev/null
 tar -xf $TMPDIR/KYLIEKYLER.tar.xz -C $TMPDIR 2>/dev/null
 ui_print " "
-ui_print "- Checking device..."
+ui_print "- Dectecting device..."
 sleep 2
 
-KYLIEKYLER=$(grep_prop ro.product.vendor.device /vendor/build.prop)
-
 if [ $KYLIEKYLER == "whyred" ]; then
-  ui_print " "
-  ui_print "- Whyred (Redmi Note 5 Pro / AI / Global) Detected"
+  ui_print "  Whyred (Redmi Note 5 / Pro) Detected"
   ui_print " "
    
   OIFS=$IFS; IFS=\|
@@ -78,20 +89,16 @@ if [ $KYLIEKYLER == "whyred" ]; then
 	 
 elif [ $KYLIEKYLER == "lavender" ] || [ $KYLIEKYLER == "violet" ]; then
   mkdir -p $TMPDIR/system/vendor/overlay
-  ui_print " "
-  ui_print "- Lavender/Violet (Redmi Note 7 / Pro) Detected"
+  ui_print "  Lavender / Violet (Redmi Note 7 / Pro) Detected"
   cp -f $TMPDIR/PIXELARITY/Laviolet/Laviolet/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
   cp -f $TMPDIR/PIXELARITY/Laviolet/Laviolet/pixelarity_kyliekyler.apk $TMPDIR/system/vendor/overlay
   
 elif [ $KYLIEKYLER == "beryllium" ]; then
-  ui_print " "
-  ui_print "- Beryllium (Pocophone F1) Detected"
+  ui_print "  Beryllium (Pocophone F1) Detected"
   cp -f $TMPDIR/PIXELARITY/Beryllium/Beryllium/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
   cp -f $TMPDIR/PIXELARITY/Beryllium/Beryllium/pixelarity_kyliekyler.apk $TMPDIR/system/vendor/overlay
   
 else
-  ui_print " "
-  abort "- Device not supported, aborting..."
-  ui_print " "
+  abort "  Device not supported, aborting..."
 fi    
 	
