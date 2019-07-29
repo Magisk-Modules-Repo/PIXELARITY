@@ -28,42 +28,42 @@ sleep 2
     *rcn*) RC=false;;
   esac
   IFS=$OIFS
-
-if [ -z $RC ]; then
-  if [ -z $VKSEL ]; then
-    ui_print "- Some options not specified in zipname!"
-    ui_print " "
-    ui_print "- Using defaults if not specified in zipname!"
-    [ -z $RC ] && RC=true
+if [ $KYLIEKYLER == "whyred" ]; then
+  ui_print "  Whyred (Redmi Note 5 / Pro) Detected"
+  ui_print " "
+  if [ -z $RC ]; then
+    if [ -z $VKSEL ]; then
+      ui_print "- Some options not specified in zipname!"
+      ui_print " "
+      ui_print "- Using defaults if not specified in zipname!"
+      [ -z $RC ] && RC=true
+    else
+      if [ -z $RC ]; then
+        ui_print "××××××××××××××××××××××××××××××××××××××××××××××××××××××"
+        ui_print "×               CHOOSE WHAT TO INSTALL               ×"
+        ui_print "××××××××××××××××××××××××××××××××××××××××××××××××××××××"
+        ui_print "×                                                    ×"
+        ui_print "×        [VOL+] = Whyred Default Style Corners       ×"
+        ui_print "×                                                    ×"
+        ui_print "×        [VOL-] = Pixel Style Rounded Corners        ×"
+        ui_print "×                                                    ×"
+        ui_print "××××××××××××××××××××××××××××××××××××××××××××××××××××××"
+        if $VKSEL; then
+          RC=true
+        else
+          RC=false
+        fi
+      fi            
+    fi                 
   else
-    if [ -z $RC ]; then
-      ui_print "××××××××××××××××××××××××××××××××××××××××××××××××××××××"
-      ui_print "×               CHOOSE WHAT TO INSTALL               ×"
-      ui_print "××××××××××××××××××××××××××××××××××××××××××××××××××××××"
-      ui_print "×                                                    ×"
-      ui_print "×        [VOL+] = Whyred Default Style Corners       ×"
-      ui_print "×                                                    ×"
-      ui_print "×        [VOL-] = Pixel Style Rounded Corners        ×"
-      ui_print "×                                                    ×"
-      ui_print "××××××××××××××××××××××××××××××××××××××××××××××××××××××"
-      if $VKSEL; then
-        RC=true
-      else
-        RC=false
-      fi
-    fi            
-  fi                 
-else
-  ui_print "- Options specified in zipname!"
+    ui_print "- Options specified in zipname!"
+  fi
 fi
-
   mkdir -p $TMPDIR/system/vendor/overlay $TMPDIR/system/priv-app/QtiAudio
   cp -r -f $TMPDIR/PIXELARITY/Whyred/CameraPatch/system $TMPDIR/system
   cp f $TMPDIR/PIXELARITY/Whyred/CallFix/QtiAudio.apk $TMPDIR/system/priv-app/QtiAudio
 
-if [ $KYLIEKYLER == "whyred" ]; then
-  ui_print "  Whyred (Redmi Note 5 / Pro) Detected"
-  ui_print " "
+
   if $RC; then
     ui_print " "
     ui_print "- Whyred Default Style Corners selected"
@@ -74,7 +74,7 @@ if [ $KYLIEKYLER == "whyred" ]; then
     cp -f $TMPDIR/PIXELARITY/Whyred/Pixel/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
     cp -f $TMPDIR/PIXELARITY/Whyred/Pixel/pixelarity_kyliekyler.apk $TMPDIR/system/vendor/overlay
   fi	 
-elif [ $KYLIEKYLER == "lavender" ] || [ $KYLIEKYLER == "violet" ]; then
+if [ $KYLIEKYLER == "lavender" ] || [ $KYLIEKYLER == "violet" ]; then
   mkdir -p $TMPDIR/system/vendor/overlay
   ui_print "  Lavender / Violet (Redmi Note 7 / Pro) Detected"
   cp -f $TMPDIR/PIXELARITY/Laviolet/Laviolet/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
