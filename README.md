@@ -1,10 +1,13 @@
+# PIXELARITY
+
 <p align="center">
   <img src="https://github.com/Magisk-Modules-Repo/PIXELARITY/blob/master/.github/logo.png"> 
 </p>
  
 <p align="center">
-  <a href="https://t.me/PIXELARITY"><img src="https://img.shields.io/badge/Telegram-Channel-blue.svg"></a> <a href="https://t.me/PIXELARITYCHAT"><img src="https://img.shields.io/badge/Telegram-Group-blue.svg"></a>
+  <a href="https://t.me/PIXELARITY"><img src="https://img.shields.io/badge/Telegram-Channel-blue.svg"></a>&emsp;<a href="https://t.me/PIXELARITYCHAT"><img src="https://img.shields.io/badge/Telegram-Group-blue.svg"></a>
 </p>
+<br/>
 
 PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on devices running Android Q
 
