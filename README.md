@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=""> 
+  <img src="https://github.com/Magisk-Modules-Repo/PIXELARITY/blob/master/.github/logo.png"> 
 </p>
  
 <p align="center">
