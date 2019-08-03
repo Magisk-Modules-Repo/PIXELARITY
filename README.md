@@ -5,7 +5,7 @@
 </p>
  
 <p align="center">
-  <a href="https://t.me/PIXELARITY"><img src="https://img.shields.io/badge/Telegram-Channel-blue.svg"></a>&emsp;<a href="https://t.me/PIXELARITYCHAT"><img src="https://img.shields.io/badge/Telegram-Group-blue.svg"></a>
+  <a href="https://t.me/PIXELARITY"><img src="https://img.shields.io/badge/Telegram-Channel-blue.svg"></a><br/><a href="https://t.me/PIXELARITYCHAT"><img src="https://img.shields.io/badge/Telegram-Group-blue.svg"></a>
 </p>
 <br/>
 
