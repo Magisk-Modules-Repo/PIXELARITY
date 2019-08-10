@@ -14,11 +14,12 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
 # Compatibility
 - [![Android Q](https://img.shields.io/badge/Android-Q-brightgreen.svg)](https://developer.android.com/preview)
 - [![Magisk](https://img.shields.io/badge/Magisk-19%2B-00B39B.svg)](https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445)
-- [![Beryllium](https://img.shields.io/badge/Pocophone_F1-Beryllium-yellow.svg)](https://www.gsmarena.com/xiaomi_pocophone_f1-9293.php)
 - [![Sirius](https://img.shields.io/badge/Mi_8_SE-Sirius-blue.svg)](https://www.gsmarena.com/xiaomi_mi_8_se-9219.php)
+- [![Beryllium](https://img.shields.io/badge/Pocophone_F1-Beryllium-yellow.svg)](https://www.gsmarena.com/xiaomi_pocophone_f1-9293.php)
 - [![Whyred](https://img.shields.io/badge/Redmi_Note_5/Pro-Whyred-red.svg)](https://www.gsmarena.com/xiaomi_redmi_note_5_pro-8893.php)
-- [![Laviolet](https://img.shields.io/badge/Redmi_Note_7/Pro-Lavender/Violet-violet.svg)](https://www.gsmarena.com/xiaomi_redmi_note_7-9513.php)
 - [![Waymine](https://img.shields.io/badge/Mi_6X/A2-Jasmine_Sprout/Wayne-green.svg)](https://www.gsmarena.com/xiaomi_mi_a2_(mi_6x)-9140.php)
+- [![Laviolet](https://img.shields.io/badge/Redmi_Note_7/Pro-Lavender/Violet-violet.svg)](https://www.gsmarena.com/xiaomi_redmi_note_7-9513.php)
+
 
 > PIXEL & GENERIC GSI SUPPORTED
 
@@ -60,6 +61,7 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
 - Improved Scripts
 - Fixed Misspelled Content
 - Added Support For Generic GSI
+- Added GNU Public License v3.0
 - Added Support For Jasmine Sprout, Wayne, and Sirius
 - Added Choice Whether Dark or Light Bootanimation to be Installed
 
