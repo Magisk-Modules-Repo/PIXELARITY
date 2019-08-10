@@ -576,13 +576,7 @@ unity_install() {
   done
 
   # Prop files
-  KYLIEKYLER=$(grep_prop ro.product.vendor.device /vendor/build.prop)
-  
-  if [ $KYLIEKYLER == "lavender" ] || [ $KYLIEKYLER == "violet" ]; then
-    [ -s $TMPDIR/common/laviolet.prop ] && { prop_process $TMPDIR/common/laviolet.prop; }
-  else
-    [ -s $TMPDIR/common/system.prop ] && { prop_process $TMPDIR/common/system.prop; }
-  fi
+  [ -s $TMPDIR/common/pixelarity.prop ] && { prop_process $TMPDIR/common/pixelarity.prop; $MAGISK || echo $PROP >> $INFO; }
 
   #Install post-fs-data mode scripts
   [ -s $TMPDIR/common/post-fs-data.sh ] && install_script -p $TMPDIR/common/post-fs-data.sh

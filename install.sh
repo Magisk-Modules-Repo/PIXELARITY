@@ -71,7 +71,7 @@ print_modname() {
   ui_print "× | _ \| |\ \/ /|  _|| |   / \ | _ \| ||_   _|\ \/ / ×"
   ui_print "× |  _/| | >  < |  _|| |_ | ^ ||   /| |  | |   \  /  ×"
   ui_print "× |_|  |_|/_/\_\|___||___||_|_||_|_\|_|  |_|   /_/   ×"
-  ui_print "×                                       v3.1 (31000) ×"
+  ui_print "×                                       v3.2 (32000) ×"
   ui_print "×                                      by Kyliekyler ×"  
   ui_print "××××××××××××××××××××××××××××××××××××××××××××××××××××××"
   ui_print " "
@@ -102,7 +102,7 @@ set_permissions() {
 
 # Custom Variables for Install AND Uninstall - Keep everything within this function - runs before uninstall/install
 unity_custom() {
-  : # Remove this if adding to this function
+  : # Remove this if adding to this function  
 }
 
 # Custom Functions for Install AND Uninstall - You can put them here

@@ -12,16 +12,56 @@
 PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on devices running Android Q
 
 # Compatibility
--   [![Android Q](https://img.shields.io/badge/Android-Q-brightgreen.svg)](https://developer.android.com/preview)
--   [![Magisk](https://img.shields.io/badge/Magisk-19%2B-00B39B.svg)](https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445)
--   [![Beryllium](https://img.shields.io/badge/Pocophone_F1-Beryllium-yellow.svg)](https://www.gsmarena.com/xiaomi_pocophone_f1-9293.php)
--   [![Whyred](https://img.shields.io/badge/Redmi_Note_5/Pro-Whyred-red.svg)](https://www.gsmarena.com/xiaomi_redmi_note_5_pro-8893.php)
--   [![Laviolet](https://img.shields.io/badge/Redmi_Note_7/Pro-Lavender/Violet-violet.svg)](https://www.gsmarena.com/xiaomi_redmi_note_7-9513.php)
+- [![Android Q](https://img.shields.io/badge/Android-Q-brightgreen.svg)](https://developer.android.com/preview)
+- [![Magisk](https://img.shields.io/badge/Magisk-19%2B-00B39B.svg)](https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445)
+- [![Beryllium](https://img.shields.io/badge/Pocophone_F1-Beryllium-yellow.svg)](https://www.gsmarena.com/xiaomi_pocophone_f1-9293.php)
+- [![Sirius](https://img.shields.io/badge/Mi_8_SE-Sirius-blue.svg)](https://www.gsmarena.com/xiaomi_mi_8_se-9219.php)
+- [![Whyred](https://img.shields.io/badge/Redmi_Note_5/Pro-Whyred-red.svg)](https://www.gsmarena.com/xiaomi_redmi_note_5_pro-8893.php)
+- [![Laviolet](https://img.shields.io/badge/Redmi_Note_7/Pro-Lavender/Violet-violet.svg)](https://www.gsmarena.com/xiaomi_redmi_note_7-9513.php)
+- [![Waymine](https://img.shields.io/badge/Mi_6X/A2-Jasmine_Sprout/Wayne-green.svg)](https://www.gsmarena.com/xiaomi_mi_a2_(mi_6x)-9140.php)
 
-
-ONLY PIXEL Q GSI / ROM IS SUPPORTED FOR NOW
+> PIXEL & GENERIC GSI SUPPORTED
 
 # Changelog
+
+### v3.2
+**- General**
+- Added Q Easter Egg
+- Merged Props From QPP6.190730.005
+- Updated Fonts
+- Fixed Unreadable Characters
+- Fixed Dark Bootanimation Thanks to SpeedoWBT 
+- Fixed Application of Bootanimation on A/B Devices
+- Disable GPU Throttle
+- Optimized GPU
+- Optimized CPU
+- Removed OBB Fix
+- Cleanups
+
+**- Lavender / Violet**
+- Fixed Bootloop When Disabling Thermals
+
+**- Beryllium**
+- Fixed BT Sounds When Thermals Disabled
+- Fixed Content Padding
+- Removed New Assistant Gesture Animation
+- Dropped Statusbar Fixes
+
+**- Wayne / Jasmine Sprout**
+- Initial Support
+- Adjusted Device Default Content Padding (Requested)
+
+**- Sirius**
+- Initial Support
+
+**- Module**
+- Get Exact Device Model
+- Updated Module Description
+- Improved Scripts
+- Fixed Misspelled Content
+- Added Support For Generic GSI
+- Added Support For Jasmine Sprout, Wayne, and Sirius
+- Added Choice Whether Dark or Light Bootanimation to be Installed
 
 ### v3.1
 **- General**
@@ -109,7 +149,7 @@ ONLY PIXEL Q GSI / ROM IS SUPPORTED FOR NOW
 - Fixed Initail In-Call Audio
 - Fixed "Ok, Google" and Gboard Voice Input Now Works Simultaneously
 - Fixed Heating Issues
-- Added Thermals from <a href="t.me/srfariasmau">Eriko</a>
+- Added Thermals from <a href="t.me/srfariasmau">Srfarias</a>
 - Updated Props
 
 ### v2.0
@@ -124,7 +164,7 @@ ONLY PIXEL Q GSI / ROM IS SUPPORTED FOR NOW
 - Updated Props
 - Reduced Module Size Significantly
 - Added New Thermals
-- Added Camera Patch from <a href="t.me/nhappymanncp">Bogdan</a>
+- Added Camera Patch from <a href="t.me/nhappymanncp">Nhappymann</a>
 - Added Smart Replies
 - Added Patch to Gboard to have Faster Offline Voice Recognition
 - Fixed "Ok, Google" Detection Thanks to <a href="t.me/thepaperbag">Alex</a>
@@ -147,10 +187,19 @@ ONLY PIXEL Q GSI / ROM IS SUPPORTED FOR NOW
 ```
 su -c cmd appops set com.google.android.GoogleCamera android:legacy_storage allow && su -c am force-stop com.google.android.GoogleCamera
 ```
-- For Lavender/Violet Users Use Magisk 19.2 to Pass Safety Net
+
+- For Lavender/Violet Users Use Magisk 19.2 To Fix Safety Net Probems
+
+- To Fix OBB Problems
+  0. Find kernel that fixes obb folder (not bin)
+  1. Go to /system/bin
+  2. Delete migrate_legacy_obb_data.sh
+  3. Reboot
    
 # Instructions
-- Download and install the module.
+- Download and install the module
+- Choose using vol keys
+- Reboot after you finished installing
 
 # Credits
 - [Gabriel Howard](https://t.me/GabrielHoward) and Pix3lify Devs for my inspiration / motivation to create the module
