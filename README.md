@@ -27,6 +27,7 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
 
 ### v3.2
 **- General**
+- Added More Bugs To Fix Later
 - Added Q Easter Egg
 - Merged Props From QPP6.190730.005
 - Updated Fonts
@@ -44,7 +45,6 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
 
 **- Beryllium**
 - Fixed BT Sounds When Thermals Disabled
-- Fixed Content Padding
 - Removed New Assistant Gesture Animation
 - Dropped Statusbar Fixes
 
