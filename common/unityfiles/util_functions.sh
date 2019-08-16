@@ -1,3 +1,10 @@
+#         ____  _            __           _ __                 
+#       /  __ \_)   _____  / /___ ______(_) /___  __          
+#      /  /_/ / / |/_/ _ \/ / __ '/ ___/ / __/ / / /          
+#     / ____ / />   <| __/ / /_/ / /  / / /_/ /_/ /           
+#    /_/    /_//_/|_/___/_/\__,_/_/ /_/\__/\__,  /            
+#                            by Kyliekyler /____/             
+
 ##########################################################################################
 #
 # Unity (Un)Install Utility Functions
@@ -192,11 +199,13 @@ mount_part() {
   is_mounted $POINT || abort "! Cannot mount $POINT"
 }
 
+Can I use $mount_partitions instead of $SYSTEM_ROOT
+
 mount_partitions() {
   # Check A/B slot
-  SLOT=`grep_cmdline androidboot.slot_suffix`
+  SLOT=grep_cmdline androidboot.slot_suffix
   if [ -z $SLOT ]; then
-    SLOT=`grep_cmdline androidboot.slot`
+    SLOT=grep_cmdline androidboot.slot
     [ -z $SLOT ] || SLOT=_${SLOT}
   fi
   [ -z $SLOT ] || ui_print "- Current boot slot: $SLOT"
@@ -206,6 +215,7 @@ mount_partitions() {
     SYSTEM_ROOT=true
     [ -L /system_root ] && rm -f /system_root
     mkdir /system_root 2>/dev/null
+    mount -o rw /dev/block/bootdevice/by-name/system /system
     mount --move /system /system_root
     mount -o bind /system_root/system /system
   else
@@ -221,7 +231,7 @@ api_level_arch_detect() {
   ABI2=`grep_prop ro.product.cpu.abi2 | cut -c-3`
   ABILONG=`grep_prop ro.product.cpu.abi`
 
-  ARCH=arm
+  ARCH=arm 
   ARCH32=arm
   IS64BIT=false
   if [ "$ABI" = "x86" ]; then ARCH=x86; ARCH32=x86; fi;
@@ -576,7 +586,14 @@ unity_install() {
   done
 
   # Prop files
-  [ -s $TMPDIR/common/pixelarity.prop ] && { prop_process $TMPDIR/common/pixelarity.prop; $MAGISK || echo $PROP >> $INFO; }
+  case $API in
+    29)
+      [ -s $TMPDIR/common/pixelarityQ.prop ] && { prop_process $TMPDIR/common/pixelarityQ.prop; $MAGISK || echo $PROP >> $INFO; }
+    ;;
+    28)
+      [ -s $TMPDIR/common/pixelarityP.prop ] && { prop_process $TMPDIR/common/pixelarityP.prop; $MAGISK || echo $PROP >> $INFO; }
+    ;;
+  esac
 
   #Install post-fs-data mode scripts
   [ -s $TMPDIR/common/post-fs-data.sh ] && install_script -p $TMPDIR/common/post-fs-data.sh
@@ -714,7 +731,7 @@ unity_main() {
   if $DEBUG; then
     ui_print " "
     ui_print "- Debug mode"
-    ui_print "  Debug log will be written to: /sdcard/$MODID-debug.log"
+    ui_print "  Debug log will be written to: /sdcard/$MODID-DEBUG.log"
     exec 2>/sdcard/$MODID-debug.log
     set -x
   fi
@@ -725,6 +742,15 @@ unity_main() {
   
   # Load user vars/function
   unity_custom
+  
+  PIXELARITY=$(grep_prop ro.product.vendor.model /vendor/build.prop)
+  KYLIEKYLER=$(grep_prop ro.product.vendor.device /vendor/build.prop)
+  
+  if [ -e /system/vendor/overlay/framework-res__auto_generated_rro.apk ]; then
+    CHINNY=true
+  else
+    CHINNY=false
+  fi
 
   # Determine mod installation status
   ui_print " "

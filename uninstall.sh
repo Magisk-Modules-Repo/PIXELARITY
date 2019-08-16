@@ -1,3 +1,10 @@
+#        ____  _            __           _ __                 
+#       /  __ \_)   _____  / /___ ______(_) /___  __          
+#      /  /_/ / / |/_/ _ \/ / __ '/ ___/ / __/ / / /          
+#     / ____ / />   <| __/ / /_/ / /  / / /_/ /_/ /           
+#    /_/    /_//_/|_/___/_/\__,_/_/ /_/\__/\__,  /            
+#                            by Kyliekyler /____/             
+
 if $SYSOVER || $DIRSEPOL; then
   rm -f $INFO; mount -o rw,remount /system
   [ -L /system/vendor ] && mount -o rw,remount /vendor

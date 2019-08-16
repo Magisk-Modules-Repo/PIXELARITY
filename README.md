@@ -1,5 +1,5 @@
 # PIXELARITY
-
+- - -
 <p align="center">
   <img src="https://github.com/Magisk-Modules-Repo/PIXELARITY/blob/master/.github/logo.png"> 
 </p>
@@ -9,28 +9,83 @@
 </p>
 <br/>
 
-PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on devices running Android Q
+PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on devices running Android P/Q
 
 # Compatibility
-- [![Android Q](https://img.shields.io/badge/Android-Q-brightgreen.svg)](https://developer.android.com/preview)
+- - -
+- - [![Android Q](https://img.shields.io/badge/Android-P-lightgreen.svg)](https://developer.android.com/)
+- [![Android Q](https://img.shields.io/badge/Android-Q-brightgreen.svg)](https://developer.android.com/)
 - [![Magisk](https://img.shields.io/badge/Magisk-19%2B-00B39B.svg)](https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445)
-- [![Sirius](https://img.shields.io/badge/Mi_8_SE-Sirius-blue.svg)](https://www.gsmarena.com/xiaomi_mi_8_se-9219.php)
-- [![Beryllium](https://img.shields.io/badge/Pocophone_F1-Beryllium-yellow.svg)](https://www.gsmarena.com/xiaomi_pocophone_f1-9293.php)
-- [![Whyred](https://img.shields.io/badge/Redmi_Note_5/Pro-Whyred-red.svg)](https://www.gsmarena.com/xiaomi_redmi_note_5_pro-8893.php)
-- [![Waymine](https://img.shields.io/badge/Mi_6X/A2-Jasmine_Sprout/Wayne-green.svg)](https://www.gsmarena.com/xiaomi_mi_a2_(mi_6x)-9140.php)
-- [![Laviolet](https://img.shields.io/badge/Redmi_Note_7/Pro-Lavender/Violet-violet.svg)](https://www.gsmarena.com/xiaomi_redmi_note_7-9513.php)
 
+> - Q GSIs SUPPORTED
+> - ALL PIE ROMs SUPPORTED
 
-> PIXEL & GENERIC GSI SUPPORTED
+# Notes
+- - -
+- To Fix Microphone Problems Go To
+> Settings > Apps & notifications > Default apps > Assist app > Assist app > Set it to None and Set it to Google Again
+- To Fix Gcam Proplems Go To Terminal App and Run This Command
+```
+su -c cmd appops set com.google.android.GoogleCamera android:legacy_storage allow && su -c am force-stop com.google.android.GoogleCamera
+```
+- For Lavender/Violet Users Use Magisk 19.2 To Fix Safety Net Probems
+- For Those Having Problems Regarding Bootanimation You Can Manually Rename The Bootanimation To Work
+  - For A/B Devices
+    1. Navigate to /system_root/system/product/media/
+    2. Rename bootanimation-dark.zip to bootanimation.zip
+    3. Replace existing bootanimation.zip with the renamed file
+    4. Reboot
+  - For A-Only Devices
+    1. Navigate to /system/product/media
+    2. Rename bootanimation-dark.zip to bootanimation.zip
+    3. Replace existing bootanimation.zip with the renamed file
+    4. Reboot
+- To Fix OBB Problems
+  1. Find kernel that fixes obb folder (not bin)
+  2. Go to /system/bin
+  3. Delete migrate_legacy_obb_data.sh
+  4. Reboot
+   
+# Instructions
+- - -
+- Download and install the module
+- Choose using vol keys
+- Reboot after you finished installing
 
 # Changelog
+- - -
+### v3.3
+**- General**
+- Gaming Mode
+- Updated Gaming Mode Thermals
+- Reverted Fonts From Build 31114 with Fixes
+- Fixed Signal Drops
+- Fixed Padding Notched Phones
+- Fixed Bootanimation Installation on A/B and on some A-Only
+- Initial Support for All Devices on Q GSIs and Pie ROMs
+- Improved Haptic Feedback
+- Updated GPU Tuning
+- Updated Overlays
+- Corrected Pie Props
+- Mini Cleanup
+
+**- Lavender / Violet**
+- Adjusted RCC Padding as Requested
+
+**- Module**
+- Fixed Mount on A/B Devices
+- Removed Device Restrictions (Now all phone running Android Q or P will be able to run the module)
+- Renewed ASCII Art (To make it readable on recovery)
+- Rewrite Code in More Efficient Way
+- Updated and Moved Notes in Front of README.md
+- Added Choice Not To Change Bootanimation
+- Switched Thermal Verification (Now vol- cancel thermal disabling, helpful to set default on legacy device)
 
 ### v3.2
 **- General**
-- Added More Bugs To Fix Later
 - Added Q Easter Egg
 - Merged Props From QPP6.190730.005
-- Updated Fonts
+- Revert Fonts From Build 31000
 - Fixed Unreadable Characters
 - Fixed Dark Bootanimation Thanks to SpeedoWBT 
 - Fixed Application of Bootanimation on A/B Devices
@@ -45,6 +100,7 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
 
 **- Beryllium**
 - Fixed BT Sounds When Thermals Disabled
+- Fixed Content Padding
 - Removed New Assistant Gesture Animation
 - Dropped Statusbar Fixes
 
@@ -180,28 +236,6 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
 ### v1.0
 
 - Initial Release
-
-# Notes
-- To Fix Microphone Problems Go To
-> Settings > Apps & notifications > Default apps > Assist app > Assist app > Set it to None and Set it to Google Again
-
-- To Fix Gcam Proplems Go To Terminal App and Run This Command
-```
-su -c cmd appops set com.google.android.GoogleCamera android:legacy_storage allow && su -c am force-stop com.google.android.GoogleCamera
-```
-
-- For Lavender/Violet Users Use Magisk 19.2 To Fix Safety Net Probems
-
-- To Fix OBB Problems
-  0. Find kernel that fixes obb folder (not bin)
-  1. Go to /system/bin
-  2. Delete migrate_legacy_obb_data.sh
-  3. Reboot
-   
-# Instructions
-- Download and install the module
-- Choose using vol keys
-- Reboot after you finished installing
 
 # Credits
 - [Gabriel Howard](https://t.me/GabrielHoward) and Pix3lify Devs for my inspiration / motivation to create the module
