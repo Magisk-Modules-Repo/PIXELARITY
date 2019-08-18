@@ -1,10 +1,3 @@
-#         ____  _            __           _ __                 
-#       /  __ \_)   _____  / /___ ______(_) /___  __          
-#      /  /_/ / / |/_/ _ \/ / __ '/ ___/ / __/ / / /          
-#     / ____ / />   <| __/ / /_/ / /  / / /_/ /_/ /           
-#    /_/    /_//_/|_/___/_/\__,_/_/ /_/\__/\__,  /            
-#                            by Kyliekyler /____/             
-
 ##########################################################################################
 #
 # Unity (Un)Install Utility Functions
@@ -732,7 +725,7 @@ unity_main() {
     ui_print " "
     ui_print "- Debug mode"
     ui_print "  Debug log will be written to: /sdcard/$MODID-DEBUG.log"
-    exec 2>/sdcard/$MODID-debug.log
+    exec 2>/sdcard/$MODID-DEBUG.log
     set -x
   fi
 
@@ -745,13 +738,8 @@ unity_main() {
   
   PIXELARITY=$(grep_prop ro.product.vendor.model /vendor/build.prop)
   KYLIEKYLER=$(grep_prop ro.product.vendor.device /vendor/build.prop)
+  SOC=$(grep_prop ro.product.board /vendor/build.prop)
   
-  if [ -e /system/vendor/overlay/framework-res__auto_generated_rro.apk ]; then
-    CHINNY=true
-  else
-    CHINNY=false
-  fi
-
   # Determine mod installation status
   ui_print " "
   if $MAGISK && ! $SYSOVER && [ -f "/system/addon.d/$MODID-files" -o -f "/system/etc/$MODID-files" ]; then
