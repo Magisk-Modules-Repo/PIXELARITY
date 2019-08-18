@@ -13,7 +13,7 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
 
 # Compatibility
 - - -
-- - [![Android Q](https://img.shields.io/badge/Android-P-lightgreen.svg)](https://developer.android.com/)
+- [![Android P](https://img.shields.io/badge/Android-P-lightgreen.svg)](https://developer.android.com/)
 - [![Android Q](https://img.shields.io/badge/Android-Q-brightgreen.svg)](https://developer.android.com/)
 - [![Magisk](https://img.shields.io/badge/Magisk-19%2B-00B39B.svg)](https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445)
 
@@ -57,24 +57,32 @@ su -c cmd appops set com.google.android.GoogleCamera android:legacy_storage allo
 ### v3.3
 **- General**
 - Gaming Mode
-- Updated Gaming Mode Thermals
+  - Improved Memory Management
+  - Disabled CPU/GPU Thermal Throttling
+  - Fast Charge Enabled
+  - VFS Cache Pressure Set to 150
+  - Adjusted Entropy Values
+  - More...
 - Reverted Fonts From Build 31114 with Fixes
-- Fixed Signal Drops
-- Fixed Padding Notched Phones
-- Fixed Bootanimation Installation on A/B and on some A-Only
-- Initial Support for All Devices on Q GSIs and Pie ROMs
+- Fixed Mic Issues
+- Fixed Static Sounds (Report if your phone still have crackling noise)
+- Fixed Signal Drop
+- Fixed Asus Sound Issues
+- Fixed Padding on Notched Phones
+- Fixed In-Call Audio Mi 9 SE
+- Initial Support for All Devices on Q GSIs and Pie ROMs (Except Pixels)
 - Improved Haptic Feedback
-- Updated GPU Tuning
+- Improved Network Connectivity
 - Updated Overlays
 - Corrected Pie Props
+- Removed OTA Certs
+- Added Config to Enable Max Resolution Videos
 - Mini Cleanup
 
-**- Lavender / Violet**
-- Adjusted RCC Padding as Requested
 
 **- Module**
 - Fixed Mount on A/B Devices
-- Removed Device Restrictions (Now all phone running Android Q or P will be able to run the module)
+- Added Device Restrictions (Pixel Phones Wont be Installing the Module Anymore)
 - Renewed ASCII Art (To make it readable on recovery)
 - Rewrite Code in More Efficient Way
 - Updated and Moved Notes in Front of README.md

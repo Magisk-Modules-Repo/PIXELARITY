@@ -1,10 +1,3 @@
-#         ____  _            __           _ __                 
-#       /  __ \_)   _____  / /___ ______(_) /___  __          
-#      /  /_/ / / |/_/ _ \/ / __ '/ ___/ / __/ / / /          
-#     / ____ / />   <| __/ / /_/ / /  / / /_/ /_/ /           
-#    /_/    /_//_/|_/___/_/\__,_/_/ /_/\__/\__,  /            
-#                            by Kyliekyler /____/             
-
 ##########################################################################################
 #
 # Unity Config Script
@@ -39,7 +32,7 @@ MAXAPI=29
 #DYNLIB=true
 #SYSOVER=true
 #DIRSEPOL=true
-DEBUG=true
+#DEBUG=true
 
 # Uncomment if you do *NOT* want Magisk to mount any files for you. Most modules would NOT want to set this flag to true
 # This is obviously irrelevant for system installs. This will be set to true automatically if your module has no files in system
@@ -79,20 +72,22 @@ print_modname() {
   PIXELARITY=$(grep_prop ro.product.vendor.model /vendor/build.prop)
   KYLIEKYLER=$(grep_prop ro.product.vendor.device /vendor/build.prop)
   ROM=$(grep_prop ro.build.display.id | cut -d'-' -f1)
+  SOC=$(grep_prop ro.product.board /vendor/build.prop)
   ui_print " "
-  ui_print "××××××××××××××××××××××××××××××××××××××××××××××"
-  ui_print "× ____  _            __           _ __       ×"
-  ui_print "×|  __ (_)   _____  / /___ ______(_) /___  __×"
-  ui_print "×| /_/ / / |/_/ _ \/ / __ '/ ___/ / __/ / / /×"
-  ui_print "×| ___/ />   <| __/ / /_/ / /  / / /_/ /_/ / ×" 
-  ui_print "×|_/ /_//_/|_|\__/_/\__,_/_/ /_/\__/\__,  /  ×"
-  ui_print "×                     by Kyliekyler /____/   ×"
-  ui_print "××××××××××××××××××××××××××××××××××××××××××××××"
+  ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
+  ui_print "     ____  _           __           _ __       "          
+  ui_print "   /  __ \(_)  _____  / /___ ______(_) /___  __"          
+  ui_print "  /  /_/ / / |/_/ _ \/ / __ '/ ___/ / __/ / / /"          
+  ui_print " / ____ / />   <| __/ / /_/ / /  / / /_/ /_/ / "          
+  ui_print "/_/    /_//_/|_/___/_/\__,_/_/ /_/\___/\__, /  "          
+  ui_print "                        by Kyliekyler /____/   "        
+  ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
   ui_print "  MODULE VERSION | $VER ($REL)"
   ui_print "  DEVICE MODEL   | $PIXELARITY ($KYLIEKYLER)"
-  ui_print "  ROM ID         | $ROM"
   ui_print "  SDK VERSION    | $API"
-  ui_print "××××××××××××××××××××××××××××××××××××××××××××××"
+  ui_print "  CHIPSET        | $SOC"
+  ui_print "  ROM ID         | $ROM"
+  ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
   ui_print " "                                              
   unity_main # Don't change this line 
 }
