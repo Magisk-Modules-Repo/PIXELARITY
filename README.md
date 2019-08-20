@@ -54,6 +54,14 @@ su -c cmd appops set com.google.android.GoogleCamera android:legacy_storage allo
 
 # Changelog
 - - -
+### v3.4
+- Major Bug fixes
+  - Fixed Module Installation with FDE, LKT & NFS (Can be used with PIXELARITY now)
+  - Fixed Soundfx with DTS & ViPER (Can be used with PIXELARITY now)
+- Added Option for Fonts
+- Adjusted Gaming Mode Tweak Values
+- Cleanup
+
 ### v3.3
 **- General**
 - Gaming Mode
@@ -246,6 +254,7 @@ su -c cmd appops set com.google.android.GoogleCamera android:legacy_storage allo
 - Initial Release
 
 # Credits
+- [K1ks](https://t.me/K1ks1) for lending me some tweaks added to gaming mode
 - [Gabriel Howard](https://t.me/GabrielHoward) and Pix3lify Devs for my inspiration / motivation to create the module
 - [Master Jaymin Suthar](https://t.me/JayminSuthar1001) and [Master Skittles](https://t.me/Skittles9823) for answering my noob questions
 - [Master JohnFawkes](https://github.com/JohnFawkes) for helping me to solve anything

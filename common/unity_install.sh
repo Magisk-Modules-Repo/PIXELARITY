@@ -17,6 +17,8 @@ case $(echo $(basename $ZIPFILE) | tr '[:upper:]' '[:lower:]') in
   *modeg*) MODE=game;;
   *gmcc*) GMC=cont;;
   *gmca*) GMC=abrt;;
+  *font*) FONT=default;;
+  *font*) FONT=googlesans;;
 esac
 IFS=$OIFS
  
@@ -167,79 +169,119 @@ case $API in
   
   28)
     mkdir -p $TMPDIR/system/vendor/overlay   
-    case $CHINNY in
-      true)
-        case $KYLIEKYLER in    
-          # NO NOTCH P IS HERE ×××=========================================//
-          whyred|wayne|jasmine*|mido|tissot)
+    case $KYLIEKYLER in    
+    # NO NOTCH P IS HERE ×××===============================================//
+      whyred|wayne|jasmine*|mido|tissot)
+        if [ -z $OVL ]; then
+          if [ -z $VKSEL ]; then
+            [ -z $OVL ] && OVL=default
+          else
             if [ -z $OVL ]; then
-              if [ -z $VKSEL ]; then
-               [ -z $OVL ] && OVL=default
+              ui_print " "
+              ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
+              ui_print "×                CHOOSE OVERLAY               ×"
+              ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
+              ui_print "×                                             ×"
+              ui_print "×    [VOL+] = Device Default Style Corners    ×"
+              ui_print "×                                             ×"
+              ui_print "×    [VOL-] = Pixel Style Rounded Corners     ×"
+              ui_print "×                                             ×"
+              ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
+              if $VKSEL; then
+                OVL=default
               else
-                if [ -z $OVL ]; then
-                  ui_print " "
-                  ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-                  ui_print "×                CHOOSE OVERLAY               ×"
-                  ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-                  ui_print "×                                             ×"
-                  ui_print "×    [VOL+] = Device Default Style Corners    ×"
-                  ui_print "×                                             ×"
-                  ui_print "×    [VOL-] = Pixel Style Rounded Corners     ×"
-                  ui_print "×                                             ×"
-                  ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-                  if $VKSEL; then
-                    OVL=default
-                  else
-                    OVL=pixel
-                  fi
-                fi            
-              fi                 
-            fi
+                OVL=pixel
+              fi
+            fi            
+          fi                 
+        fi
   
-            case $OVL in 
-              default) 
-                ui_print " "
-                ui_print "- Device Default Style Corners selected"
-                ui_print " "
-                cp -f $TMPDIR/PIXELARITY/P/Generic/NoNotch/Default/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
-              ;;
-          
-              pixel)
-                ui_print " "
-                ui_print "- Pixel Style Rounded Corners selected"
-                ui_print " "
-                cp -f $TMPDIR/PIXELARITY/P/Generic/NoNotch/Pixel/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
-                cp -f $TMPDIR/PIXELARITY/P/Generic/NoNotch/Pixel/kyliekyler.apk $TMPDIR/system/vendor/overlay
-              ;;
-            esac  
-          ;;   
-      
-          # ELSE IS HERE ==================================================//
-          *)
+        case $OVL in 
+          default) 
             ui_print " "
-          ;; 
-        esac   
+            ui_print "- Device Default Style Corners selected"
+            ui_print " "
+            cp -f $TMPDIR/PIXELARITY/P/Generic/NoNotch/Default/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
+          ;;
+        
+          pixel)
+            ui_print " "
+            ui_print "- Pixel Style Rounded Corners selected"
+            ui_print " "
+            cp -f $TMPDIR/PIXELARITY/P/Generic/NoNotch/Pixel/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
+            cp -f $TMPDIR/PIXELARITY/P/Generic/NoNotch/Pixel/kyliekyler.apk $TMPDIR/system/vendor/overlay
+          ;;
+        esac  
+      ;;   
+      
+      # ELSE IS HERE ======================================================//
+      *)
+        ui_print " "
+      ;; 
+    esac   
+  ;;
+esac
+
+# FONTS IS HERE ===========================================================//  
+if [ -z $FONT ]; then
+  if [ -z $VKSEL ]; then
+    [ -z $FONT ] && FONT=default
+  else
+    if [ -z $FONT ]; then
+      sleep 1
+      ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
+      ui_print "×                 CHOOSE FONT                 ×"
+      ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
+      ui_print "×                                             ×"
+      ui_print "×        [VOL+] = System Default Font         ×"
+      ui_print "×                                             ×"
+      ui_print "×        [VOL-] = Google Sans Font            ×"
+      ui_print "×                                             ×"
+      ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
+      if $VKSEL; then
+        FONT=default
+      else
+        FONT=googlesans
+      fi
+    fi            
+  fi                 
+fi
+
+case $FONT in
+  default)
+    ui_print " "
+    ui_print "- System Default Font selected"
+  ;;
+ 
+  googlesans)
+    mkdir -p $TMPDIR/system
+    ui_print " "
+    ui_print "- Google Sans Font selected"
+    cp -rf $TMPDIR/PIXELARITY/5277/GoogleSans/fonts $TMPDIR/system
+  ;;
+esac
+    
+
+# SOUNDFX IS HERE =========================================================//  
+case $FX in
+  true)
+    case $KYLIEKYLER in
+      x0*|X0*|land|mido|grus|sirius)
+      ;;
+  
+      *)
+        mkdir -p $TMPDIR/system $TMPDIR/system/vendor $TMPDIR/system/vendor/lib $TMPDIR/system/vendor/lib64
+        cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/bin $TMPDIR/system
+        cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/etc $TMPDIR/system
+        cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/lib $TMPDIR/system
+        cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/lib64 $TMPDIR/system
+        cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/vendor/etc $TMPDIR/system/vendor
+        cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/vendor/lib/soundfx $TMPDIR/system/vendor/lib
+        cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/vendor/lib64/soundfx $TMPDIR/system/vendor/lib64 
       ;;
     esac
   ;;
-esac
-  
-# SOUNDFX IS HERE =========================================================//  
-case $KYLIEKYLER in
-  x0*|X0*|land|mido|grus|sirius)
-  ;;
-  
-  *)
-    mkdir -p $TMPDIR/system $TMPDIR/system/vendor $TMPDIR/system/vendor/lib $TMPDIR/system/vendor/lib64
-    cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/bin $TMPDIR/system
-    cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/etc $TMPDIR/system
-    cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/lib $TMPDIR/system
-    cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/lib64 $TMPDIR/system
-    cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/vendor/etc $TMPDIR/system/vendor
-    cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/vendor/lib/soundfx $TMPDIR/system/vendor/lib
-    cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/vendor/lib64/soundfx $TMPDIR/system/vendor/lib64 
-  ;;
-esac
+esac 
 
 # DEVICE SPECIFIC TWEAKS / FIX IS HERE ====================================//
 case $KYLIEKYLER in
@@ -289,6 +331,7 @@ if [ -z $BTA ]; then
     [ -z $BTA ] && BTA=default
   else
     if [ -z $BTA ]; then
+      ui_print " "
       sleep 1
       ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
       ui_print "×             CHOOSE BOOTANIMATION            ×"
@@ -350,7 +393,7 @@ case $BTA in
             case $SYSTEM_ROOT in
               true)
                 case $KYLIEKYLER in
-                  last_resort)
+                  lavender|violet)
                     ui_print " "
                     ui_print "- Changing bootanimation of $KYLIEKYLER on Q not possible"
                   ;;
@@ -408,7 +451,7 @@ case $BTA in
             case $SYSTEM_ROOT in
               true)  
                 case $KYLIEKYLER in
-                  last_resort)
+                  lavender|violet)
                     ui_print " "
                     ui_print "- Changing bootanimation of $KYLIEKYLER on Q not possible"
                   ;;
@@ -491,74 +534,94 @@ fi
 case $MODE in
   # DEFAULT MODE IS HERE ==================================================//
   default)
-    ui_print " "
-    ui_print "- DEFAULT MODE selected"
-  ;;
-  
-  # GAMING MODE IS HERE ===================================================//
-  game)
-    if [ -z $GMC ]; then
-      if [ -z $VKSEL ]; then
-        [ -z $GMC ] && GMC=abrt
-      else
-        if [ -z $GMC ]; then
-          ui_print " "    
-          ui_print "- GAMING MODE selected"
-          sleep 1
-          ui_print " " 
-          ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-          ui_print "×           GAMING MODE CONFIRMATION          ×"
-          ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-          ui_print "×                                             ×"
-          ui_print "×     [VOL+] = CONTINUE   [VOL-] = ABORT      ×"
-          ui_print "×                                             ×"
-          ui_print "×  Note: This will significantly improves     ×"
-          ui_print "×        overall performance but will cause   ×"
-          ui_print "×        heating & increased power usage.     ×"
-          ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-          if $VKSEL; then
-            GMC=cont
-          else
-            GMC=abrt
-          fi
-        fi            
-      fi                 
-    fi 
-    
-    case $GMC in
-      cont)
+    case $HALT in
+      true)  
         ui_print " "
-        ui_print "- Enabling GAMING MODE..."
-        case $SOC in          
-          sdm8*)
-            sleep 1
-            mkdir -p $TMPDIR/system/lib $TMPDIR/system/lib64
-            cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/L/I/B/6/4/egl $TMPDIR/system/lib64
-            cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/L/I/B/egl $TMPDIR/system/lib
-            ui_print "  GAMING MODE ENABLED, UNLEASH THE POWER!" 
-          ;;
-          
-          sdm6*|sdm7*)
-            sleep 1
-            mkdir -p $TMPDIR/system/vendor $TMPDIR/system/lib $TMPDIR/system/lib64
-            cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/T/H/E/R/M/A/L/S/bin $TMPDIR/system/vendor
-            cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/T/H/E/R/M/A/L/S/etc $TMPDIR/system/vendor
-            cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/L/I/B/6/4/egl $TMPDIR/system/lib64
-            cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/L/I/B/egl $TMPDIR/system/lib
-            ui_print "  GAMING MODE ENABLED, UNLEASH THE POWER!" 
-          ;;
-          
-          *)
-            sleep 1
-            cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/T/H/E/R/M/A/L/S/etc $TMPDIR/system/vendor
-            ui_print "  GAMING MODE ENABLED, UNLEASH THE POWER!" 
-          ;;
-        esac          
+        ui_print "- DEFAULT MODE selected"
       ;;
       
-      abrt)
+      false)
         ui_print " "
-        ui_print "- Aborted GAMING MODE, setting back DEFAULTS"
+        ui_print "- DEFAULT MODE selected"
+      ;;      
+    esac
+  ;;
+  
+# GAMING MODE IS HERE ===================================================//
+  game)
+    case $HALT in
+      true)
+        ui_print " "
+        ui_print "- Conflicting module detected, selecting DEFAULT MODE..."
+        sleep 1
+        ui_print "  Done, DEFAULT MODE selected"
+      ;;
+      
+      false)
+        if [ -z $GMC ]; then
+          if [ -z $VKSEL ]; then
+            [ -z $GMC ] && GMC=abrt
+          else
+            if [ -z $GMC ]; then
+              ui_print " "    
+              ui_print "- GAMING MODE selected"
+              sleep 1
+              ui_print " " 
+              ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
+              ui_print "×           GAMING MODE CONFIRMATION          ×"
+              ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
+              ui_print "×                                             ×"
+              ui_print "×     [VOL+] = CONTINUE   [VOL-] = ABORT      ×"
+              ui_print "×                                             ×"
+              ui_print "×  Note: This will significantly improves     ×"
+              ui_print "×        overall performance but will cause   ×"
+              ui_print "×        heating & increased power usage.     ×"
+              ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
+              if $VKSEL; then
+                GMC=cont
+              else
+                GMC=abrt
+              fi
+            fi            
+          fi                 
+        fi  
+    
+        case $GMC in
+          cont)
+            ui_print " "
+            ui_print "- Enabling GAMING MODE..."
+            case $SOC in          
+              sdm8*)
+                sleep 1
+                mkdir -p $TMPDIR/system/lib $TMPDIR/system/lib64
+                cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/L/I/B/6/4/egl $TMPDIR/system/lib64
+                cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/L/I/B/egl $TMPDIR/system/lib
+                ui_print "  GAMING MODE ENABLED, UNLEASH THE POWER!" 
+              ;;
+          
+              sdm6*|sdm7*)
+                sleep 1
+                mkdir -p $TMPDIR/system/vendor $TMPDIR/system/lib $TMPDIR/system/lib64
+                cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/T/H/E/R/M/A/L/S/bin $TMPDIR/system/vendor
+                cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/T/H/E/R/M/A/L/S/etc $TMPDIR/system/vendor
+                cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/L/I/B/6/4/egl $TMPDIR/system/lib64
+                cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/L/I/B/egl $TMPDIR/system/lib
+                ui_print "  GAMING MODE ENABLED, UNLEASH THE POWER!" 
+              ;;
+          
+              *)
+                sleep 1
+                cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/T/H/E/R/M/A/L/S/etc $TMPDIR/system/vendor
+                ui_print "  GAMING MODE ENABLED, UNLEASH THE POWER!" 
+              ;;
+            esac          
+          ;;
+      
+          abrt)
+            ui_print " "
+            ui_print "- Aborted GAMING MODE, setting back DEFAULTS"
+          ;;
+        esac
       ;;
     esac 
   ;;
@@ -573,7 +636,7 @@ ui_print "  Done, next boot will be a little bit longer"
 
 
 # MASTER JOHN FAWKES MAGIC IS HERE ========================================//
-for i in "GMC"; do
+for i in "GMC" "HALT"; do
   sed -i "2i $i=$(eval echo \$$i)" $TMPDIR/common/service.sh
 done
  
