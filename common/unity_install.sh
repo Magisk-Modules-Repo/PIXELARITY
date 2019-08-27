@@ -13,10 +13,6 @@ case $(echo $(basename $ZIPFILE) | tr '[:upper:]' '[:lower:]') in
   *btap*) BTA=pixel;;
   *btacl*) BTAC=light;;
   *btacd*) BTAC=dark;;
-  *moded*) MODE=default;;
-  *modeg*) MODE=game;;
-  *gmcc*) GMC=cont;;
-  *gmca*) GMC=abrt;;
   *font*) FONT=default;;
   *font*) FONT=googlesans;;
 esac
@@ -39,10 +35,11 @@ esac
 # OVERLAYS IS HERE ========================================================//
 case $API in
   29)  
-    mkdir -p $TMPDIR/system/app $TMPDIR/system/vendor/overlay $TMPDIR/system/product/overlay      
-    cp -rf $TMPDIR/PIXELARITY/Q/5277/EasterEgg $TMPDIR/system/app
+    mkdir -p $TMPDIR/system/app $TMPDIR/system/vendor/overlay $TMPDIR/system/product/overlay $TMPDIR/system/vendor/app
+    cp -rf $TMPDIR/PIXELARITY/10/5277/EasterEgg $TMPDIR/system/app
+    cp -f $TMPDIR/PIXELARITY/10/5277/Bholte/org.codeaurora.ims.apk $TMPDIR/system/vendor/app
     
-    # NO NOTCH Q IS HERE ==================================================//
+    # NO NOTCH 10 IS HERE ==================================================//
     case $KYLIEKYLER in
       wayne|jasmine*|whyred|mido|tissot)
         if [ -z $OVL ]; then
@@ -74,24 +71,24 @@ case $API in
             ui_print " "
             ui_print "- Device Default Style Corners selected"
             ui_print " "
-            cp -f $TMPDIR/PIXELARITY/Q/Generic/NoNotch/Default/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
+            cp -f $TMPDIR/PIXELARITY/10/Generic/NoNotch/Default/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
           ;;
           
           pixel)
             ui_print " "
             ui_print "- Pixel Style Rounded Corners selected"
             ui_print " "
-            cp -f $TMPDIR/PIXELARITY/Q/Generic/NoNotch/Pixel/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
-            cp -f $TMPDIR/PIXELARITY/Q/Generic/NoNotch/Pixel/kyliekyler.apk $TMPDIR/system/vendor/overlay
+            cp -f $TMPDIR/PIXELARITY/10/Generic/NoNotch/Pixel/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
+            cp -f $TMPDIR/PIXELARITY/10/Generic/NoNotch/Pixel/kyliekyler.apk $TMPDIR/system/vendor/overlay
           ;;
         esac
       ;;
       
-      # NOTCH Q IS HERE ===================================================//
+      # NOTCH 10 IS HERE ===================================================//
       beryllium)
-        cp -f $TMPDIR/PIXELARITY/Q/Generic/Generic/pixelarity.apk $TMPDIR/system/product/overlay
-        cp -f $TMPDIR/PIXELARITY/Q/Beryllium/Beryllium/pixelarityds.apk $TMPDIR/system/product/overlay
-        cp -f $TMPDIR/PIXELARITY/Q/Beryllium/Beryllium/kyliekyler.apk $TMPDIR/system/product/overlay        
+        cp -f $TMPDIR/PIXELARITY/10/Generic/Generic/pixelarity.apk $TMPDIR/system/product/overlay
+        cp -f $TMPDIR/PIXELARITY/10/Beryllium/Beryllium/pixelarityds.apk $TMPDIR/system/product/overlay
+        cp -f $TMPDIR/PIXELARITY/10/Beryllium/Beryllium/kyliekyler.apk $TMPDIR/system/product/overlay        
         ui_print " "
       ;;
 
@@ -125,102 +122,56 @@ case $API in
             ui_print " "
             ui_print "- Device Default Style Corners selected"
             ui_print " "
-            cp -f $TMPDIR/PIXELARITY/Q/Generic/Generic/pixelarity.apk $TMPDIR/system/product/overlay
-            cp -f $TMPDIR/PIXELARITY/Q/Sirius/Sirius/Default/pixelarityds.apk $TMPDIR/system/product/overlay
-            cp -f $TMPDIR/PIXELARITY/Q/Sirius/Sirius/Default/kyliekyler.apk $TMPDIR/system/product/overlay 
+            cp -f $TMPDIR/PIXELARITY/10/Generic/Generic/pixelarity.apk $TMPDIR/system/product/overlay
+            cp -f $TMPDIR/PIXELARITY/10/Sirius/Sirius/Default/pixelarityds.apk $TMPDIR/system/product/overlay
+            cp -f $TMPDIR/PIXELARITY/10/Sirius/Sirius/Default/kyliekyler.apk $TMPDIR/system/product/overlay 
+            cp -f $TMPDIR/PIXELARITY/10/Sirius/Sirius/Default/pixelarity_kyliekyler.apk $TMPDIR/system/product/overlay
           ;;
           
           pixel)
             ui_print " "
             ui_print "- Pixel Style Rounded Corners selected"
             ui_print " "
-            cp -f $TMPDIR/PIXELARITY/Q/Generic/Generic/pixelarity.apk $TMPDIR/system/product/overlay
-            cp -f $TMPDIR/PIXELARITY/Q/Sirius/Sirius/Pixel/pixelarityds.apk $TMPDIR/system/product/overlay
-            cp -f $TMPDIR/PIXELARITY/Q/Sirius/Sirius/Pixel/kyliekyler.apk $TMPDIR/system/product/overlay        
+            cp -f $TMPDIR/PIXELARITY/10/Generic/Generic/pixelarity.apk $TMPDIR/system/product/overlay
+            cp -f $TMPDIR/PIXELARITY/10/Sirius/Sirius/Pixel/pixelarityds.apk $TMPDIR/system/product/overlay
+            cp -f $TMPDIR/PIXELARITY/10/Sirius/Sirius/Pixel/kyliekyler.apk $TMPDIR/system/product/overlay    
+            cp -f $TMPDIR/PIXELARITY/10/Sirius/Sirius/Pixel/pixelarity_kyliekyler.apk $TMPDIR/system/product/overlay
           ;;  
         esac
       ;;
     
       lavender|violet|grus)
         if [ -d /system/vendor/overlay/ChinaMobileFrameworksRes ]; then
-          cp -f $TMPDIR/PIXELARITY/Q/Generic/Notch/Waterdrop/framework-res__auto_generated_rro.apk $TMPDIR/system/product/overlay
-          cp -f $TMPDIR/PIXELARITY/Q/Generic/Notch/Waterdrop/kyliekyler.apk $TMPDIR/system/product/overlay 
+          cp -f $TMPDIR/PIXELARITY/10/Generic/Notch/Waterdrop/framework-res__auto_generated_rro.apk $TMPDIR/system/product/overlay
+          cp -f $TMPDIR/PIXELARITY/10/Generic/Notch/Waterdrop/kyliekyler.apk $TMPDIR/system/product/overlay 
           ui_print " "
         else
-          cp -f $TMPDIR/PIXELARITY/Q/Generic/Notch/Waterdrop/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
-          cp -f $TMPDIR/PIXELARITY/Q/Generic/Notch/Waterdrop/kyliekyler.apk $TMPDIR/system/vendor/overlay 
+          cp -f $TMPDIR/PIXELARITY/10/Generic/Notch/Waterdrop/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
+          cp -f $TMPDIR/PIXELARITY/10/Generic/Notch/Waterdrop/kyliekyler.apk $TMPDIR/system/vendor/overlay 
           ui_print " "
         fi
       ;;
          
-      # ELSE Q IS HERE ====================================================//
+      # GENERIC 10 IS HERE =================================================//
       *)
         if [ -d /system/vendor/overlay/ChinaMobileFrameworksRes ]; then
-          cp -f $TMPDIR/PIXELARITY/Q/Generic/Generic/pixelarity.apk $TMPDIR/system/product/overlay
-          cp -f $TMPDIR/PIXELARITY/Q/Generic/Generic/kyliekyler.apk $TMPDIR/system/product/overlay
+          cp -f $TMPDIR/PIXELARITY/10/Generic/Generic/pixelarity.apk $TMPDIR/system/product/overlay
+          cp -f $TMPDIR/PIXELARITY/10/Generic/Generic/kyliekyler.apk $TMPDIR/system/product/overlay
           ui_print " "
         else
-          cp -f $TMPDIR/PIXELARITY/Q/Generic/Generic/pixelarity.apk $TMPDIR/system/vendor/overlay
-          cp -f $TMPDIR/PIXELARITY/Q/Generic/Generic/kyliekyler.apk $TMPDIR/system/vendor/overlay
+          cp -f $TMPDIR/PIXELARITY/10/Generic/Generic/pixelarity.apk $TMPDIR/system/vendor/overlay
+          cp -f $TMPDIR/PIXELARITY/10/Generic/Generic/kyliekyler.apk $TMPDIR/system/vendor/overlay
+          ui_print " "
         fi
       ;;
     esac
   ;;
   
   28)
-    mkdir -p $TMPDIR/system/vendor/overlay   
-    case $KYLIEKYLER in    
-    # NO NOTCH P IS HERE ×××===============================================//
-      whyred|wayne|jasmine*|mido|tissot)
-        if [ -z $OVL ]; then
-          if [ -z $VKSEL ]; then
-            [ -z $OVL ] && OVL=default
-          else
-            if [ -z $OVL ]; then
-              ui_print " "
-              ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-              ui_print "×                CHOOSE OVERLAY               ×"
-              ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-              ui_print "×                                             ×"
-              ui_print "×    [VOL+] = Device Default Style Corners    ×"
-              ui_print "×                                             ×"
-              ui_print "×    [VOL-] = Pixel Style Rounded Corners     ×"
-              ui_print "×                                             ×"
-              ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-              if $VKSEL; then
-                OVL=default
-              else
-                OVL=pixel
-              fi
-            fi            
-          fi                 
-        fi
-  
-        case $OVL in 
-          default) 
-            ui_print " "
-            ui_print "- Device Default Style Corners selected"
-            ui_print " "
-            cp -f $TMPDIR/PIXELARITY/P/Generic/NoNotch/Default/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
-          ;;
-        
-          pixel)
-            ui_print " "
-            ui_print "- Pixel Style Rounded Corners selected"
-            ui_print " "
-            cp -f $TMPDIR/PIXELARITY/P/Generic/NoNotch/Pixel/framework-res__auto_generated_rro.apk $TMPDIR/system/vendor/overlay
-            cp -f $TMPDIR/PIXELARITY/P/Generic/NoNotch/Pixel/kyliekyler.apk $TMPDIR/system/vendor/overlay
-          ;;
-        esac  
-      ;;   
-      
-      # ELSE IS HERE ======================================================//
-      *)
-        ui_print " "
-      ;; 
-    esac   
+    cp -f $TMPDIR/PIXELARITY/9/5277/AODEnabler/pixelarity.apk $TMPDIR/system/vendor/overlay
+    ui_print " "
   ;;
-esac
+esac;
 
 # FONTS IS HERE ===========================================================//  
 if [ -z $FONT ]; then
@@ -261,28 +212,6 @@ case $FONT in
   ;;
 esac
     
-
-# SOUNDFX IS HERE =========================================================//  
-case $FX in
-  true)
-    case $KYLIEKYLER in
-      x0*|X0*|land|mido|grus|sirius)
-      ;;
-  
-      *)
-        mkdir -p $TMPDIR/system $TMPDIR/system/vendor $TMPDIR/system/vendor/lib $TMPDIR/system/vendor/lib64
-        cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/bin $TMPDIR/system
-        cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/etc $TMPDIR/system
-        cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/lib $TMPDIR/system
-        cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/lib64 $TMPDIR/system
-        cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/vendor/etc $TMPDIR/system/vendor
-        cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/vendor/lib/soundfx $TMPDIR/system/vendor/lib
-        cp -rf $TMPDIR/PIXELARITY/5277/SoundFX/vendor/lib64/soundfx $TMPDIR/system/vendor/lib64 
-      ;;
-    esac
-  ;;
-esac 
-
 # DEVICE SPECIFIC TWEAKS / FIX IS HERE ====================================//
 case $KYLIEKYLER in
   whyred|wayne|tulip)
@@ -296,8 +225,8 @@ esac
 case $KYLIEKYLER in
   whyred)
     if [ -d "/system/priv-app/phh" ]; then
-      mkdir -p $TMPDIR/system/priv-app/QtiAudio
-      cp -f $TMPDIR/PIXELARITY/Q/Whyred/5277/CallFix/QtiAudio.apk $TMPDIR/system/priv-app/QtiAudio
+      mkdir -p $TMPDIR/system/priv-app/10tiAudio
+      cp -f $TMPDIR/PIXELARITY/10/Whyred/5277/CallFix/10tiAudio.apk $TMPDIR/system/priv-app/10tiAudio
     fi
   ;;
 esac
@@ -319,324 +248,168 @@ case $KYLIEKYLER in
     case $API in
       29)
         mkdir -p $TMPDIR/system/vendor/lib
-        cp -rf $TMPDIR/PIXELARITY/Q/Sirius/5277/CameraFix/hw $TMPDIR/system/vendor/lib
+        cp -rf $TMPDIR/PIXELARITY/10/Sirius/5277/CameraFix/hw $TMPDIR/system/vendor/lib
       ;;
     esac
   ;;
 esac
   
 # BOOTANIMATION IS HERE ===================================================//
-if [ -z $BTA ]; then
-  if [ -z $VKSEL ]; then
-    [ -z $BTA ] && BTA=default
-  else
-    if [ -z $BTA ]; then
-      ui_print " "
-      sleep 1
-      ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-      ui_print "×             CHOOSE BOOTANIMATION            ×"
-      ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-      ui_print "×                                             ×"
-      ui_print "×    [VOL+] = Device Default Bootanimation    ×"
-      ui_print "×                                             ×"
-      ui_print "×    [VOL-] = Pixel Style Bootanimation       ×"
-      ui_print "×                                             ×"
-      ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-      if $VKSEL; then
-        BTA=default
-      else
-        BTA=pixel
-      fi
-    fi            
-  fi                 
-fi
-
-case $BTA in
-  default)
-    ui_print " "
-    ui_print "- Device Default Bootanimation selected"
+case $KYLIEKYLER in
+  # UNCHANGABLE/INCOMPATIBLE IS HERE ======================================//
+  lavender|violet|*H850*)
   ;;
   
-  pixel)
-    ui_print " "
-    ui_print "- Pixel Style Bootanimation selected"
-    if [ -z $BTAC ]; then
+  # COMPATIBLE IS HERE ====================================================//
+  *)
+    if [ -z $BTA ]; then
       if [ -z $VKSEL ]; then
-        [ -z $BTAC ] && BTAC=light
+        [ -z $BTA ] && BTA=default
       else
-        if [ -z $BTAC ]; then
-          sleep 1
+        if [ -z $BTA ]; then
           ui_print " "
+          sleep 1
           ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-          ui_print "×         CHOOSE BOOTANIMATION THEME          ×"
+          ui_print "×             CHOOSE BOOTANIMATION            ×"
           ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
           ui_print "×                                             ×"
-          ui_print "×        [VOL+] = Light Bootanimation         ×"
+          ui_print "×    [VOL+] = Device Default Bootanimation    ×"
           ui_print "×                                             ×"
-          ui_print "×        [VOL-] = Dark Bootanimation          ×"
+          ui_print "×    [VOL-] = Pixel Style Bootanimation       ×"
           ui_print "×                                             ×"
           ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
           if $VKSEL; then
-            BTAC=light
+            BTA=default
           else
-            BTAC=dark
+            BTA=pixel
           fi
         fi            
       fi                 
-    fi 
+    fi
 
-    case $BTAC in
-      # LIGHT BOOTANIMATION IS HERE =======================================//
-      light)
-        case $API in
-          29)
-            case $SYSTEM_ROOT in
-              true)
-                case $KYLIEKYLER in
-                  lavender|violet)
-                    ui_print " "
-                    ui_print "- Changing bootanimation of $KYLIEKYLER on Q not possible"
-                  ;;
-                  
-                  *)
-                    mkdir -p $TMPDIR/system/product/media $TMPDIR/system_root/system/product/media
-                    rm -f /system/product/media/bootanimation.zip
-                    rm -f /system_root/system/product/media/bootanimation.zip
-                    ui_print " "
-                    ui_print "- Light Bootanimation selected"
-                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Thgil/bootanimation.zip $TMPDIR/system/product/media
-                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Thgil/bootanimation.zip $TMPDIR/system_root/system/product/media
-                  ;;
-                esac
-              ;;
- 
-              false)
-                mkdir -p $TMPDIR/system/product/media
-                rm -f /system/product/media/bootanimation.zip
-                ui_print " "
-                ui_print "- Light Bootanimation selected"
-                cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Thgil/bootanimation.zip $TMPDIR/system/product/media
-              ;;
-            esac
-          ;;
-      
-          28) 
-            case $SYSTEM_ROOT in
-              true)  
-                mkdir -p $TMPDIR/system/media $TMPDIR/system_root/system/media
-                rm -f /system/media/bootanimation.zip
-                rm -f /system_root/system/media/bootanimation.zip
-                ui_print " "
-                ui_print "- Light Bootanimation selected"
-                cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Thgil/bootanimation.zip $TMPDIR/system/media
-                cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Thgil/bootanimation.zip $TMPDIR/system_root/system/media
-              ;;
- 
-              false)
-                mkdir -p $TMPDIR/system/media
-                rm -f /system/media/bootanimation.zip
-                ui_print " "
-                ui_print "- Light Bootanimation selected"
-                cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Thgil/bootanimation.zip $TMPDIR/system/media
-              ;;
-            esac
-          ;;
-        esac     
-      ;;
-     
-      # DARK BOOTANIMATION IS HERE ========================================// 
-      dark)
-        case $API in
-          29)
-            case $SYSTEM_ROOT in
-              true)  
-                case $KYLIEKYLER in
-                  lavender|violet)
-                    ui_print " "
-                    ui_print "- Changing bootanimation of $KYLIEKYLER on Q not possible"
-                  ;;
-                  
-                  *)
-                    mkdir -p $TMPDIR/system/product/media $TMPDIR/system_root/system/product/media
-                    rm -f /system/product/media/bootanimation.zip
-                    rm -f /system_root/system/product/media/bootanimation.zip
-                    ui_print " "
-                    ui_print "- Dark Bootanimation selected"
-                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Krad/bootanimation.zip $TMPDIR/system/product/media
-                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Krad/bootanimation.zip $TMPDIR/system_root/system/product/media
-                  ;;
-                esac
-              ;;
- 
-              false)
-                mkdir -p $TMPDIR/system/product/media
-                rm -f system/product/media/bootanimation.zip
-                ui_print " "
-                ui_print "- Dark Bootanimation selected"
-                cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Krad/bootanimation.zip $TMPDIR/system/product/media
-              ;;
-            esac
-          ;;
-    
-          28)
-            case $SYSTEM_ROOT in
-              true)  
-                mkdir -p $TMPDIR/system/media $TMPDIR/system_root/system/media
-                rm -f /system/media/bootanimation.zip
-                rm -f /system_root/system/media/bootanimation.zip
-                ui_print " "
-                ui_print "- Dark Bootanimation selected"
-                cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Krad/bootanimation.zip $TMPDIR/system/media
-                cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Krad/bootanimation.zip $TMPDIR/system_root/system/media
-              ;;
- 
-              false)
-                mkdir -p $TMPDIR/system/media
-                rm -f /system/media/bootanimation.zip
-                ui_print " "
-                ui_print "- Dark Bootanimation selected"
-                cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Krad/bootanimation.zip $TMPDIR/system/media
-              ;;
-            esac
-          ;;
-        esac
-      ;;
-    esac
-  ;;
-esac
-
-# MODES IS HERE ===========================================================//
-if [ -z $MODE ]; then
-  if [ -z $VKSEL ]; then
-    [ -z $MODE ] && MODE=default
-  else
-    if [ -z $MODE ]; then
-      sleep 1
-      ui_print " "
-      ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-      ui_print "×                CHOOSE MODE                  ×"
-      ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-      ui_print "×                                             ×"
-      ui_print "×           [VOL+] = DEFAULT MODE             ×"
-      ui_print "×                                             ×"
-      ui_print "×           [VOL-] = GAMING MODE              ×"
-      ui_print "×                                             ×"
-      ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"    
-      if $VKSEL; then
-        MODE=default
-      else
-        MODE=game
-      fi
-    fi            
-  fi                 
-fi  
-
-case $MODE in
-  # DEFAULT MODE IS HERE ==================================================//
-  default)
-    case $HALT in
-      true)  
+    case $BTA in
+      default)
         ui_print " "
-        ui_print "- DEFAULT MODE selected"
+        ui_print "- Device Default Bootanimation selected"
       ;;
-      
-      false)
-        ui_print " "
-        ui_print "- DEFAULT MODE selected"
-      ;;      
-    esac
-  ;;
   
-# GAMING MODE IS HERE ===================================================//
-  game)
-    case $HALT in
-      true)
+      pixel)
         ui_print " "
-        ui_print "- Conflicting module detected, selecting DEFAULT MODE..."
-        sleep 1
-        ui_print "  Done, DEFAULT MODE selected"
-      ;;
-      
-      false)
-        if [ -z $GMC ]; then
+        ui_print "- Pixel Style Bootanimation selected"
+        if [ -z $BTAC ]; then
           if [ -z $VKSEL ]; then
-            [ -z $GMC ] && GMC=abrt
+            [ -z $BTAC ] && BTAC=light
           else
-            if [ -z $GMC ]; then
-              ui_print " "    
-              ui_print "- GAMING MODE selected"
+            if [ -z $BTAC ]; then
               sleep 1
-              ui_print " " 
+              ui_print " "
               ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-              ui_print "×           GAMING MODE CONFIRMATION          ×"
+              ui_print "×         CHOOSE BOOTANIMATION THEME          ×"
               ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
               ui_print "×                                             ×"
-              ui_print "×     [VOL+] = CONTINUE   [VOL-] = ABORT      ×"
+              ui_print "×        [VOL+] = Light Bootanimation         ×"
               ui_print "×                                             ×"
-              ui_print "×  Note: This will significantly improves     ×"
-              ui_print "×        overall performance but will cause   ×"
-              ui_print "×        heating & increased power usage.     ×"
+              ui_print "×        [VOL-] = Dark Bootanimation          ×"
+              ui_print "×                                             ×"
               ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
               if $VKSEL; then
-                GMC=cont
+                BTAC=light
               else
-                GMC=abrt
+                BTAC=dark
               fi
             fi            
           fi                 
-        fi  
-    
-        case $GMC in
-          cont)
-            ui_print " "
-            ui_print "- Enabling GAMING MODE..."
-            case $SOC in          
-              sdm8*)
-                sleep 1
-                mkdir -p $TMPDIR/system/lib $TMPDIR/system/lib64
-                cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/L/I/B/6/4/egl $TMPDIR/system/lib64
-                cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/L/I/B/egl $TMPDIR/system/lib
-                ui_print "  GAMING MODE ENABLED, UNLEASH THE POWER!" 
+        fi 
+
+        case $BTAC in
+          # LIGHT BOOTANIMATION IS HERE =======================================//
+          light)
+            case $API in
+              29)
+                case $SYSTEM_ROOT in
+                  true)
+                    mkdir -p $TMPDIR/system/product/media $TMPDIR/system_root/system/product/media
+                    ui_print " "
+                    ui_print "- Light Bootanimation selected"
+                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Generic/Thgil/bootanimation.zip $TMPDIR/system/product/media
+                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Generic/Thgil/bootanimation.zip $TMPDIR/system_root/system/product/media
+                  ;;
+         
+                  false)
+                    mkdir -p $TMPDIR/system/product/media
+                    ui_print " "
+                    ui_print "- Light Bootanimation selected"
+                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Generic/Thgil/bootanimation.zip $TMPDIR/system/product/media
+                  ;;
+                esac
               ;;
-          
-              sdm6*|sdm7*)
-                sleep 1
-                mkdir -p $TMPDIR/system/vendor $TMPDIR/system/lib $TMPDIR/system/lib64
-                cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/T/H/E/R/M/A/L/S/bin $TMPDIR/system/vendor
-                cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/T/H/E/R/M/A/L/S/etc $TMPDIR/system/vendor
-                cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/L/I/B/6/4/egl $TMPDIR/system/lib64
-                cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/L/I/B/egl $TMPDIR/system/lib
-                ui_print "  GAMING MODE ENABLED, UNLEASH THE POWER!" 
-              ;;
-          
-              *)
-                sleep 1
-                cp -rf $TMPDIR/PIXELARITY/5277/G/A/M/I/N/G/-/M/O/D/E/-/T/H/E/R/M/A/L/S/etc $TMPDIR/system/vendor
-                ui_print "  GAMING MODE ENABLED, UNLEASH THE POWER!" 
-              ;;
-            esac          
-          ;;
       
-          abrt)
-            ui_print " "
-            ui_print "- Aborted GAMING MODE, setting back DEFAULTS"
+              28) 
+                case $SYSTEM_ROOT in
+                  true)                     
+                    mkdir -p $TMPDIR/system/media $TMPDIR/system_root/system/media
+                    ui_print " "
+                    ui_print "- Light Bootanimation selected"
+                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Generic/Thgil/bootanimation.zip $TMPDIR/system/media
+                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Generic/Thgil/bootanimation.zip $TMPDIR/system_root/system/media
+                  ;;
+ 
+                  false)                    
+                    mkdir -p $TMPDIR/system/media
+                    ui_print " "
+                    ui_print "- Light Bootanimation selected"
+                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Generic/Thgil/bootanimation.zip $TMPDIR/system/media
+                  ;;
+                esac
+              ;;
+            esac     
+          ;;
+     
+          # DARK BOOTANIMATION IS HERE ========================================// 
+          dark)
+            case $API in
+              29)
+                case $SYSTEM_ROOT in
+                  true)
+                    mkdir -p $TMPDIR/system/product/media $TMPDIR/system_root/system/product/media
+                    ui_print " "
+                    ui_print "- Dark Bootanimation selected"
+                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Generic/Krad/bootanimation.zip $TMPDIR/system/product/media
+                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Generic/Krad/bootanimation.zip $TMPDIR/system_root/system/product/media
+                  ;;
+         
+                  false)
+                    mkdir -p $TMPDIR/system/product/media
+                    ui_print " "
+                    ui_print "- Dark Bootanimation selected"
+                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Generic/Krad/bootanimation.zip $TMPDIR/system/product/media
+                  ;;
+                esac
+              ;;
+      
+              28) 
+                case $SYSTEM_ROOT in
+                  true)  
+                    mkdir -p $TMPDIR/system/media $TMPDIR/system_root/system/media
+                    ui_print " "
+                    ui_print "- Dark Bootanimation selected"
+                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Generic/Krad/bootanimation.zip $TMPDIR/system/media
+                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Generic/Krad/bootanimation.zip $TMPDIR/system_root/system/media
+                  ;;
+ 
+                  false)
+                    mkdir -p $TMPDIR/system/media
+                    ui_print " "
+                    ui_print "- Dark Bootanimation selected"
+                    cp -f $TMPDIR/PIXELARITY/5277/Bootanimation/Generic/Krad/bootanimation.zip $TMPDIR/system/media
+                  ;;
+                esac
+              ;;
+            esac
           ;;
         esac
       ;;
-    esac 
+    esac
   ;;
 esac
-
-ui_print " "
-ui_print "- Wiping cache & dalvik cache..."
-sleep 1
-rm -rf /data/cache
-rm -rf /data/dalvik-cache
-ui_print "  Done, next boot will be a little bit longer"
-
-
-# MASTER JOHN FAWKES MAGIC IS HERE ========================================//
-for i in "GMC" "HALT"; do
-  sed -i "2i $i=$(eval echo \$$i)" $TMPDIR/common/service.sh
-done
  

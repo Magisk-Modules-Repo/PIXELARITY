@@ -206,7 +206,6 @@ mount_partitions() {
     SYSTEM_ROOT=true
     [ -L /system_root ] && rm -f /system_root
     mkdir /system_root 2>/dev/null
-    mount -o rw /dev/block/bootdevice/by-name/system /system
     mount --move /system /system_root
     mount -o bind /system_root/system /system
   else
@@ -579,10 +578,10 @@ unity_install() {
   # Prop files
   case $API in
     29)
-      [ -s $TMPDIR/common/pixelarityQ.prop ] && { prop_process $TMPDIR/common/pixelarityQ.prop; $MAGISK || echo $PROP >> $INFO; }
+      [ -s $TMPDIR/common/pixelarity10.prop ] && { prop_process $TMPDIR/common/pixelarity10.prop; $MAGISK || echo $PROP >> $INFO; }
     ;;
     28)
-      [ -s $TMPDIR/common/pixelarityP.prop ] && { prop_process $TMPDIR/common/pixelarityP.prop; $MAGISK || echo $PROP >> $INFO; }
+      [ -s $TMPDIR/common/pixelarity9.prop ] && { prop_process $TMPDIR/common/pixelarity9.prop; $MAGISK || echo $PROP >> $INFO; }
     ;;
   esac
 
@@ -715,7 +714,6 @@ unity_main() {
   
   PIXELARITY=$(grep_prop ro.product.vendor.model /vendor/build.prop)
   KYLIEKYLER=$(grep_prop ro.product.vendor.device /vendor/build.prop)
-  SOC=$(grep_prop ro.product.board /vendor/build.prop) 
 
   # Add blank line to end of all files if needbe
   for i in $(find $TMPDIR -type f -name "*.sh" -o -name "*.prop"); do
@@ -737,18 +735,6 @@ unity_main() {
   
   # Load user vars/function
   unity_custom 
-  
-  if [ -d /sbin/.magisk/img/ViPER* ] || [ -d /sbin/.magisk/img/DTS* ]; then
-    FX=false
-  else 
-    FX=true
-  fi
-  
-  if [ -d /sbin/.magisk/img/FDE ] || [ -d /sbin/.magisk/img/NFS ] || [ -d /sbin/.magisk/img/legendary* ] || [ -d /sbin/.magisk/img/MAGNETAR ]; then
-    HALT=true
-  else 
-    HALT=false
-  fi
   
   # Determine mod installation status
   ui_print " "

@@ -72,7 +72,6 @@ print_modname() {
   PIXELARITY=$(grep_prop ro.product.vendor.model /vendor/build.prop)
   KYLIEKYLER=$(grep_prop ro.product.vendor.device /vendor/build.prop)
   ROM=$(grep_prop ro.build.display.id | cut -d'-' -f1)
-  SOC=$(grep_prop ro.product.board /vendor/build.prop)
   ui_print " "
   ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
   ui_print "     ____  _           __           _ __       "          
@@ -82,10 +81,10 @@ print_modname() {
   ui_print "/_/    /_//_/|_/___/_/\__,_/_/ /_/\___/\__, /  "          
   ui_print "                        by Kyliekyler /____/   "        
   ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
-  ui_print "  MODULE VERSION | $VER ($REL)"
+  ui_print "  MODULE VERSION | $VER"
+  ui_print "  MODULE B.ID    | $REL"
   ui_print "  DEVICE MODEL   | $PIXELARITY ($KYLIEKYLER)"
   ui_print "  SDK VERSION    | $API"
-  ui_print "  CHIPSET        | $SOC"
   ui_print "  ROM ID         | $ROM"
   ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
   ui_print " "                                              

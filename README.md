@@ -9,26 +9,19 @@
 </p>
 <br/>
 
-PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on devices running Android P/Q
+PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on devices running Android 9/10
 
 # Compatibility
 - - -
-- [![Android P](https://img.shields.io/badge/Android-P-lightgreen.svg)](https://developer.android.com/)
-- [![Android Q](https://img.shields.io/badge/Android-Q-brightgreen.svg)](https://developer.android.com/)
+- [![Android 9](https://img.shields.io/badge/Android-9-lightgreen.svg)](https://developer.android.com/)
+- [![Android 10](https://img.shields.io/badge/Android-10-brightgreen.svg)](https://developer.android.com/)
 - [![Magisk](https://img.shields.io/badge/Magisk-19%2B-00B39B.svg)](https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445)
 
-> - Q GSIs SUPPORTED
-> - ALL PIE ROMs SUPPORTED
+> - ANDROID 10 GSIs SUPPORTED
+> - ANDROID 9 ROMs SUPPORTED
 
 # Notes
 - - -
-- To Fix Microphone Problems Go To
-> Settings > Apps & notifications > Default apps > Assist app > Assist app > Set it to None and Set it to Google Again
-- To Fix Gcam Proplems Go To Terminal App and Run This Command
-```
-su -c cmd appops set com.google.android.GoogleCamera android:legacy_storage allow && su -c am force-stop com.google.android.GoogleCamera
-```
-- For Lavender/Violet Users Use Magisk 19.2 To Fix Safety Net Probems
 - For Those Having Problems Regarding Bootanimation You Can Manually Rename The Bootanimation To Work
   - For A/B Devices
     1. Navigate to /system_root/system/product/media/
@@ -40,12 +33,7 @@ su -c cmd appops set com.google.android.GoogleCamera android:legacy_storage allo
     2. Rename bootanimation-dark.zip to bootanimation.zip
     3. Replace existing bootanimation.zip with the renamed file
     4. Reboot
-- To Fix OBB Problems
-  1. Find kernel that fixes obb folder (not bin)
-  2. Go to /system/bin
-  3. Delete migrate_legacy_obb_data.sh
-  4. Reboot
-   
+
 # Instructions
 - - -
 - Download and install the module
@@ -54,6 +42,20 @@ su -c cmd appops set com.google.android.GoogleCamera android:legacy_storage allo
 
 # Changelog
 - - -
+### v3.5
+- Stability and Improvements
+- Fixed Android 9 Compatibility
+- Fixed Mi 8 SE Overlay
+- Added Scone and Tips
+- Removed Force Mount (RW) on AB Devices
+- Removed Overlays for Android 9 ROMs
+- Updated Perms
+- Updated Props
+- Updated Overlays
+- Moved Gaming Mode & Sound Mod to a Separate Moodule
+- Renewed Module Build ID for Faster Tracking
+- Cleanup
+
 ### v3.4
 - Major Bug fixes
   - Fixed Module Installation with FDE, LKT & NFS (Can be used with PIXELARITY now)
@@ -254,7 +256,6 @@ su -c cmd appops set com.google.android.GoogleCamera android:legacy_storage allo
 - Initial Release
 
 # Credits
-- [K1ks](https://t.me/K1ks1) for lending me some tweaks added to gaming mode
 - [Gabriel Howard](https://t.me/GabrielHoward) and Pix3lify Devs for my inspiration / motivation to create the module
 - [Master Jaymin Suthar](https://t.me/JayminSuthar1001) and [Master Skittles](https://t.me/Skittles9823) for answering my noob questions
 - [Master JohnFawkes](https://github.com/JohnFawkes) for helping me to solve anything
