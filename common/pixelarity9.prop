@@ -97,6 +97,8 @@ ro.product.odm.manufacturer=Google
 ro.product.odm.model=Pixel 2 XL
 ro.product.odm.name=taimen
 persist.rcs.supported=1
+persist.audio.vr.enable=true
+ro.wallpapers_loc_request_suw=true
 
 # SMOOTH UI TWEAKS IS HERE ================================================//
 sys.use_fifo_ui=1

@@ -674,8 +674,7 @@ unity_uninstall() {
 
   ui_print " "
   ui_print "- Completing uninstall..."
-  ui_print " "
-  ui_print "- Done"
+  ui_print "  Done"
   ui_print " "
 }
 
@@ -714,6 +713,7 @@ unity_main() {
   
   PIXELARITY=$(grep_prop ro.product.vendor.model /vendor/build.prop)
   KYLIEKYLER=$(grep_prop ro.product.vendor.device /vendor/build.prop)
+  HUANGSUNG=$(grep_prop ro.product.vendor.manufacturer /vendor/build.prop)
 
   # Add blank line to end of all files if needbe
   for i in $(find $TMPDIR -type f -name "*.sh" -o -name "*.prop"); do

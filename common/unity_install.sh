@@ -13,8 +13,8 @@ case $(echo $(basename $ZIPFILE) | tr '[:upper:]' '[:lower:]') in
   *btap*) BTA=pixel;;
   *btacl*) BTAC=light;;
   *btacd*) BTAC=dark;;
-  *font*) FONT=default;;
-  *font*) FONT=googlesans;;
+  *fontd*) FONT=default;;
+  *fontg*) FONT=googlesans;;
 esac
 IFS=$OIFS
  
@@ -26,18 +26,24 @@ ui_print "  Decompressed successfully"
 
 # DEVICE RESTRICTIONS IS HERE =============================================//
 case $KYLIEKYLER in
-  sailfish|marlin|walleye|taimen|blueline|crosshatch|sargo|bonito|mata)
-    ui_print" "
-    abort "- Sorry $PIXELARITY ($KYLIEKYLER) not supported"
+  sailfish|marlin|walleye|taimen|blueline|crosshatch|sargo|bonito)
+    ui_print " "
+    abort "- Sorry $(echo $PIXELARITY | tr a-z A-Z) ($(echo $KYLIEKYLER | tr a-z A-Z)) not supported, aborting..."
+  ;;
+esac
+
+case $(echo $HUANGSUNG | tr '[:upper:]' '[:lower:]') in
+  samsung|huawei)
+    ui_print " "
+    abort "- $(echo $HUANGSUNG | tr a-z A-Z) not supported, aborting..."
   ;;
 esac
 
 # OVERLAYS IS HERE ========================================================//
 case $API in
   29)  
-    mkdir -p $TMPDIR/system/app $TMPDIR/system/vendor/overlay $TMPDIR/system/product/overlay $TMPDIR/system/vendor/app
-    cp -rf $TMPDIR/PIXELARITY/10/5277/EasterEgg $TMPDIR/system/app
-    cp -f $TMPDIR/PIXELARITY/10/5277/Bholte/org.codeaurora.ims.apk $TMPDIR/system/vendor/app
+    mkdir -p $TMPDIR/system $TMPDIR/system/vendor/overlay $TMPDIR/system/product/overlay $TMPDIR/system/vendor/app
+    cp -rf $TMPDIR/PIXELARITY/10/5277/priv-app $TMPDIR/system
     
     # NO NOTCH 10 IS HERE ==================================================//
     case $KYLIEKYLER in
@@ -168,10 +174,11 @@ case $API in
   ;;
   
   28)
+    mkdir -p $TMPDIR/system/vendor/overlay
     cp -f $TMPDIR/PIXELARITY/9/5277/AODEnabler/pixelarity.apk $TMPDIR/system/vendor/overlay
     ui_print " "
   ;;
-esac;
+esac
 
 # FONTS IS HERE ===========================================================//  
 if [ -z $FONT ]; then
@@ -225,8 +232,8 @@ esac
 case $KYLIEKYLER in
   whyred)
     if [ -d "/system/priv-app/phh" ]; then
-      mkdir -p $TMPDIR/system/priv-app/10tiAudio
-      cp -f $TMPDIR/PIXELARITY/10/Whyred/5277/CallFix/10tiAudio.apk $TMPDIR/system/priv-app/10tiAudio
+      mkdir -p $TMPDIR/system/priv-app/QtiAudio
+      cp -f $TMPDIR/PIXELARITY/10/Whyred/5277/CallFix/QtiAudio.apk $TMPDIR/system/priv-app/10tiAudio
     fi
   ;;
 esac
@@ -258,6 +265,7 @@ esac
 case $KYLIEKYLER in
   # UNCHANGABLE/INCOMPATIBLE IS HERE ======================================//
   lavender|violet|*H850*)
+    ui_print " "
   ;;
   
   # COMPATIBLE IS HERE ====================================================//
@@ -412,4 +420,3 @@ case $KYLIEKYLER in
     esac
   ;;
 esac
- 

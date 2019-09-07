@@ -1,5 +1,4 @@
 # PIXELARITY
-- - -
 <p align="center">
   <img src="https://github.com/Magisk-Modules-Repo/PIXELARITY/blob/master/.github/logo.png"> 
 </p>
@@ -12,16 +11,15 @@
 PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on devices running Android 9/10
 
 # Compatibility
-- - -
 - [![Android 9](https://img.shields.io/badge/Android-9-lightgreen.svg)](https://developer.android.com/)
 - [![Android 10](https://img.shields.io/badge/Android-10-brightgreen.svg)](https://developer.android.com/)
 - [![Magisk](https://img.shields.io/badge/Magisk-19%2B-00B39B.svg)](https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445)
 
-> - ANDROID 10 GSIs SUPPORTED
-> - ANDROID 9 ROMs SUPPORTED
+# List of Not Supported
+- Memeui ROM
+- Huawei and Samsung Devices
 
 # Notes
-- - -
 - For Those Having Problems Regarding Bootanimation You Can Manually Rename The Bootanimation To Work
   - For A/B Devices
     1. Navigate to /system_root/system/product/media/
@@ -35,13 +33,25 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
     4. Reboot
 
 # Instructions
-- - -
 - Download and install the module
 - Choose using vol keys
 - Reboot after you finished installing
 
 # Changelog
-- - -
+### v3.6
+- Bug Fixes and Improvements
+- Merged Props from QP1A.190711.020 for Android 10
+- Added Easle Services
+- Updated Bootanimation
+- Updated Perms
+- Fixed Force Close Google App from Android 9 ROMs
+- Fixed Bootloop When Uninstalling the Module
+- Removed Scone & Tips for Android 9
+- Enhanced Safety Parameters for Confirmed Not Suppoted Phones/ROM
+  - Negates Samsung, Huawei Devices
+  - Negates Memeui ROM
+- Major Cleanup
+  
 ### v3.5
 - Stability and Improvements
 - Fixed Android 9 Compatibility
@@ -88,7 +98,6 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
 - Removed OTA Certs
 - Added Config to Enable Max Resolution Videos
 - Mini Cleanup
-
 
 **- Module**
 - Fixed Mount on A/B Devices

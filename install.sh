@@ -83,9 +83,9 @@ print_modname() {
   ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
   ui_print "  MODULE VERSION | $VER"
   ui_print "  MODULE B.ID    | $REL"
-  ui_print "  DEVICE MODEL   | $PIXELARITY ($KYLIEKYLER)"
+  ui_print "  DEVICE MODEL   | $(echo $PIXELARITY | tr a-z A-Z) ($(echo $KYLIEKYLER | tr a-z A-Z))"
   ui_print "  SDK VERSION    | $API"
-  ui_print "  ROM ID         | $ROM"
+  ui_print "  ROM ID         | $(echo $ROM | tr a-z A-Z)"
   ui_print "×××××××××××××××××××××××××××××××××××××××××××××××"
   ui_print " "                                              
   unity_main # Don't change this line 
