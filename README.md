@@ -47,9 +47,9 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
 - Fixed Force Close Google App from Android 9 ROMs
 - Fixed Bootloop When Uninstalling the Module
 - Removed Scone & Tips for Android 9
-- Enhanced Safety Parameters for Confirmed Not Suppoted Phones/ROM
+- Enhanced Safety Parameters for Confirmed Not Suppoted Phones/~~ROM~~
   - Negates Samsung, Huawei Devices
-  - Negates Memeui ROM
+  - ~~Negates Memeui ROM~~
 - Major Cleanup
   
 ### v3.5
