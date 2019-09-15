@@ -24,9 +24,13 @@ tar -xf $TMPDIR/PIXELARITY_KYLIEKYLER.tar.xz -C $TMPDIR 2>/dev/null
 sleep 1
 ui_print "  Decompressed successfully"
 
+if [ -e /system/etc/permissions/pixel* ]; then
+  rm -f $TMPDIR/system/etc/permissions/pixel*
+fi
+
 # DEVICE RESTRICTIONS IS HERE =============================================//
 case $KYLIEKYLER in
-  sailfish|marlin|walleye|taimen|blueline|crosshatch|sargo|bonito)
+  sailfish|marlin|walleye|taimen|blueline|crosshatch|sargo|bonito|mata)
     ui_print " "
     abort "- Sorry $(echo $PIXELARITY | tr a-z A-Z) ($(echo $KYLIEKYLER | tr a-z A-Z)) not supported, aborting..."
   ;;
@@ -157,25 +161,10 @@ case $API in
           ui_print " "
         fi
       ;;
-         
-      # GENERIC 10 IS HERE =================================================//
-      *)
-        if [ -d /system/vendor/overlay/ChinaMobileFrameworksRes ]; then
-          cp -f $TMPDIR/PIXELARITY/10/Generic/Generic/pixelarity.apk $TMPDIR/system/product/overlay
-          cp -f $TMPDIR/PIXELARITY/10/Generic/Generic/kyliekyler.apk $TMPDIR/system/product/overlay
-          ui_print " "
-        else
-          cp -f $TMPDIR/PIXELARITY/10/Generic/Generic/pixelarity.apk $TMPDIR/system/vendor/overlay
-          cp -f $TMPDIR/PIXELARITY/10/Generic/Generic/kyliekyler.apk $TMPDIR/system/vendor/overlay
-          ui_print " "
-        fi
-      ;;
-    esac
+    esac         
   ;;
   
   28)
-    mkdir -p $TMPDIR/system/vendor/overlay
-    cp -f $TMPDIR/PIXELARITY/9/5277/AODEnabler/pixelarity.apk $TMPDIR/system/vendor/overlay
     ui_print " "
   ;;
 esac
@@ -243,29 +232,17 @@ case $KYLIEKYLER in
     case $API in
       28)
         if [ -e "/system/framework/qti-telephony-common.jar" ]; then
-          rm -rf /system/framework/qti-telephony-common.jar
+          rm -f /system/framework/qti-telephony-common.jar
         fi
       ;;
     esac
   ;;
 esac 
-
-case $KYLIEKYLER in
-  sirius)
-    case $API in
-      29)
-        mkdir -p $TMPDIR/system/vendor/lib
-        cp -rf $TMPDIR/PIXELARITY/10/Sirius/5277/CameraFix/hw $TMPDIR/system/vendor/lib
-      ;;
-    esac
-  ;;
-esac
   
 # BOOTANIMATION IS HERE ===================================================//
 case $KYLIEKYLER in
   # UNCHANGABLE/INCOMPATIBLE IS HERE ======================================//
   lavender|violet|*H850*)
-    ui_print " "
   ;;
   
   # COMPATIBLE IS HERE ====================================================//

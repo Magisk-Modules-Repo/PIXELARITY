@@ -38,6 +38,13 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
 - Reboot after you finished installing
 
 # Changelog
+### v3.7
+- Bug Fixes and Improvements
+- Updated Props
+- Fixed SafetyNet
+- Fixed Status Bar Padding on Some Android 10 Devices
+- Mini Cleanup
+
 ### v3.6
 - Bug Fixes and Improvements
 - Merged Props from QP1A.190711.020 for Android 10
@@ -47,9 +54,9 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
 - Fixed Force Close Google App from Android 9 ROMs
 - Fixed Bootloop When Uninstalling the Module
 - Removed Scone & Tips for Android 9
-- Enhanced Safety Parameters for Confirmed Not Suppoted Phones/~~ROM~~
+- Enhanced Safety Parameters for Confirmed Not Suppoted Phones/R̶O̶M̶
   - Negates Samsung, Huawei Devices
-  - ~~Negates Memeui ROM~~
+  - N̶e̶g̶a̶t̶e̶s̶ ̶M̶e̶m̶e̶u̶i̶ ̶R̶O̶M̶
 - Major Cleanup
   
 ### v3.5
