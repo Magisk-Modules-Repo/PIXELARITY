@@ -16,7 +16,6 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
 - [![Magisk](https://img.shields.io/badge/Magisk-19%2B-00B39B.svg)](https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445)
 
 # List of Not Supported
-- Memeui ROM
 - Huawei and Samsung Devices
 
 # Notes
@@ -38,6 +37,12 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
 - Reboot after you finished installing
 
 # Changelog
+### v3.8
+- **HOTFIX**
+  - Fixed Module Installation
+  - Cleanup
+- Code Optimization
+
 ### v3.7
 - Bug Fixes and Improvements
 - Updated Props
