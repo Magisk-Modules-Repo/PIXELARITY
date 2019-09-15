@@ -24,10 +24,6 @@ tar -xf $TMPDIR/PIXELARITY_KYLIEKYLER.tar.xz -C $TMPDIR 2>/dev/null
 sleep 1
 ui_print "  Decompressed successfully"
 
-if [ -e /system/etc/permissions/pixel* ]; then
-  rm -f $TMPDIR/system/etc/permissions/pixel*
-fi
-
 # DEVICE RESTRICTIONS IS HERE =============================================//
 case $KYLIEKYLER in
   sailfish|marlin|walleye|taimen|blueline|crosshatch|sargo|bonito|mata)
@@ -161,7 +157,7 @@ case $API in
           ui_print " "
         fi
       ;;
-    esac         
+    esac
   ;;
   
   28)
@@ -238,11 +234,12 @@ case $KYLIEKYLER in
     esac
   ;;
 esac 
-  
+
 # BOOTANIMATION IS HERE ===================================================//
 case $KYLIEKYLER in
   # UNCHANGABLE/INCOMPATIBLE IS HERE ======================================//
   lavender|violet|*H850*)
+    ui_print "- Changing Bootanimation of $KYLIEKYLER not supported"
   ;;
   
   # COMPATIBLE IS HERE ====================================================//

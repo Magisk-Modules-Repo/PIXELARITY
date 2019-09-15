@@ -1,6 +1,6 @@
 # PIXELARITY
 <p align="center">
-  <img src="https://github.com/Magisk-Modules-Repo/PIXELARITY/blob/master/.github/logo.png"> 
+  <img src="https://github.com/Magisk-Modules-Repo/PIXELARITY/blob/master/.github/pixelarity.png"> 
 </p>
  
 <p align="center">
