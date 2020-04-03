@@ -1,4 +1,4 @@
-# PIXELARITY
+# PIXELARITY // W I P //
 <p align="center">
   <img src="https://github.com/Magisk-Modules-Repo/PIXELARITY/blob/master/.github/pixelarity.png"> 
 </p>
@@ -30,6 +30,7 @@ PIXELARITY contains pixel exclusives, fix and tweaks to boost user experience on
     2. Rename bootanimation-dark.zip to bootanimation.zip
     3. Replace existing bootanimation.zip with the renamed file
     4. Reboot
+- Currently this module is being reworked and will add Android R Beta GSI support. For further information check our Telegram Chat Group
 
 # Instructions
 - Download and install the module
